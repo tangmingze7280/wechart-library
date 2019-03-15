@@ -3,8 +3,10 @@
     "pages/index/index",
     "pages/expressage/expressage",
     "pages/first-btn/first-btn",
-    "pages/logs/logs",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/book-alive/book-alive",
+    "pages/book-runking/book-runking",
+    "pages/history-book/history-book"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,27 +14,27 @@
     "backgroundColor": "#f8f8f8",
     "navigationBarTitleText": "借书小程序",
     "navigationBarTextStyle": "black"
-    
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "/static/imgs/首页2.png",
-      "selectedIconPath": "/static/imgs/首页.png"
-    },
-    {
-      "pagePath": "pages/expressage/expressage",
-      "text": "订单",
-      "iconPath": "/static/imgs/订单2.png",
-      "selectedIconPath": "/static/imgs/订单.png"
-    },
-    {
-      "pagePath": "pages/userInfo/userInfo",
-      "text": "我的",
-      "iconPath": "/static/imgs/我的2.png",
-      "selectedIconPath": "/static/imgs/我的.png"
-    }
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/imgs/首页2.png",
+        "selectedIconPath": "/static/imgs/首页.png"
+      },
+      {
+        "pagePath": "pages/expressage/expressage",
+        "text": "订单",
+        "iconPath": "/static/imgs/订单2.png",
+        "selectedIconPath": "/static/imgs/订单.png"
+      },
+      {
+        "pagePath": "pages/userInfo/userInfo",
+        "text": "我的",
+        "iconPath": "/static/imgs/我的2.png",
+        "selectedIconPath": "/static/imgs/我的.png"
+      }
     ]
   }
 }

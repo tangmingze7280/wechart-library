@@ -4,7 +4,7 @@
         <view class='search_header'>
             <view class="weui-search-bar">
                 <view class="weui-flex">
-                    <view class="weui-flew_item">
+                    <view class="weui-flew__item">
                         <view class="weui-search-bar__form">
                             <view class="weui-search-bar__box">
                                 <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -20,34 +20,123 @@
                             </label>
                         </view>
                     </view>
+                    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+                    <view class="weui-flex_item">
+                        <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
+                                bindtap="classify">
+                            <text class="font-gray-26">分类</text>
+                            <icon class="icon-right"></icon>
+                        </button>
+                    </view>
                 </view>
-                <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+
             </view>
-            <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+            <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{selectLimit}}"
+                  wx:for-index="index" wx:for-item="itemName">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName}}" class="weui-cell"
+                           hover-class="weui-cell_active">
                     <view class="weui-cell__bd">
-                        <view>实时搜索文本</view>
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                    <view class="weui-cell__bd">
-                        <view>实时搜索文本</view>
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                    <view class="weui-cell__bd">
-                        <view>实时搜索文本</view>
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-                    <view class="weui-cell__bd">
-                        <view>实时搜索文本</view>
+                        <text>{{itemName}}</text>
                     </view>
                 </navigator>
             </view>
         </view>
     </view>
+    <!--头部结束-->
     <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">阅读统计</view>
+            <view class="weui-panel__bd" style="display: flex;flex-direction: row!important;">
+                <view class="weui-flex">
+                    <view class="weui-flex__item">
+                        <view class="weui-media-box weui-media-box_text">
+                            <view class="weui-media-box__title weui-media-box__title_in-text">书籍数量</view>
+                            <view class="weui-media-box__desc" style="color: #0bb20c"><text style="font-size: 100rpx">10</text>本</view>
+                        </view>
+                    </view>
+                    <view >
+                        <view class="weui-media-box weui-media-box_text" >
+                            <view class="weui-media-box__title weui-media-box__title_in-text">预估页数</view>
+                            <view class="weui-media-box__desc" style="color: #a192b2"><text style="font-size: 100rpx">3000</text>页</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel__ft">
+                <navigator url="/pages/history-book/history-book"><!--历史页面-->
+                    <view class="weui-cell weui-cell_access weui-cell_link">
+                        <view class="weui-cell__bd">历史借阅</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">近期排行</view>
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{itemName.bookName}}</view>
+                        <view class="weui-media-box__desc">{{itemName.introduce}}</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <navigator url="/pages/book-runking/book-runking">
+                    <view class="weui-cell weui-cell_access weui-cell_link">
+                        <view class="weui-cell__bd">查看更多</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">推荐图书</view>
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{itemName.bookName}}</view>
+                        <view class="weui-media-box__desc">{{itemName.introduce}}</view>
+                    </view>
+                </navigator>
+            </view>
 
+            <view class="weui-panel__ft">
+                <navigator url="/pages/book-runking/book-runking">
+                    <view class="weui-cell weui-cell_access weui-cell_link">
+                        <view class="weui-cell__bd">查看更多</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">推荐书单</view>
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="border-bottom: 1rpx solid #eee">
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">{{itemName.bookName}}</view>
+                        <view class="weui-media-box__desc">{{itemName.introduce}}</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="weui-panel__ft">
+                <navigator url="/pages/book-runking/book-runking">
+                    <view class="weui-cell weui-cell_access weui-cell_link">
+                        <view class="weui-cell__bd">查看更多</view>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
     </view>
 </view>
