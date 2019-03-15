@@ -1,0 +1,15 @@
+/* pages/first-btn/first-btn.wxss */
+/** 修改button默认的点击态样式类**/
+.button-hover {
+    background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+    background-color: blue;
+}
+.heaimg{
+  border-radius: 200rpx;
+  width: 200rpx;
+  height: 200rpx;
+  
+}

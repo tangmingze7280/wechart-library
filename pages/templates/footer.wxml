@@ -1,0 +1,4 @@
+<!--底部内容-->
+<template name="footer2">
+<text>这是底部内容</text>
+</template>
