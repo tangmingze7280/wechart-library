@@ -58,12 +58,6 @@ Page({
             inputShowed: true
         });
     },
-    hideInput: function () {
-        this.setData({
-            inputVal: "",
-            inputShowed: false
-        });
-    },
     clearInput: function () {
         this.setData({
             inputVal: ""

@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/userInfo/userInfo",
     "pages/expressage/expressage",
     "pages/first-btn/first-btn",
-    "pages/userInfo/userInfo",
+    "pages/index/index",
     "pages/book-alive/book-alive",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

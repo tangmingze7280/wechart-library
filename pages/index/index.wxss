@@ -6,3 +6,13 @@
 .indexCate{height:44px; white-space:nowrap; margin-top:15px;}
 .indexCate view{width:18%; display:inline-block; text-align:center; color:#FFFFFF; height:44px; line-height:44px; font-size:16px; border-bottom:1px solid #D71E02;}
 .cateActive{border-color:#FFFFFF !important;}
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}

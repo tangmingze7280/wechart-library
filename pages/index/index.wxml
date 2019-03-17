@@ -20,7 +20,7 @@
                             </label>
                         </view>
                     </view>
-                    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+                    <!--<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>-->
                     <view class="weui-flex_item">
                         <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
                                 bindtap="classify">
@@ -29,10 +29,9 @@
                         </button>
                     </view>
                 </view>
-
             </view>
             <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{selectLimit}}"
-                  wx:for-index="index" wx:for-item="itemName">
+                  wx:for-index="index" wx:for-item="itemName" wx:key="index">
                 <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName}}" class="weui-cell"
                            hover-class="weui-cell_active">
                     <view class="weui-cell__bd">
@@ -73,7 +72,7 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">近期排行</view>
-            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}"  wx:for-item="itemName" wx:key="index">
                 <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                         <image class="weui-media-box__thumb" src="{{itemName.img}}" />
@@ -95,7 +94,7 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">推荐图书</view>
-            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:key="index" wx:for-item="itemName">
                 <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                         <image class="weui-media-box__thumb" src="{{itemName.img}}" />
@@ -118,7 +117,7 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">推荐书单</view>
-            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName">
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName" wx:key="index">
                 <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="border-bottom: 1rpx solid #eee">
                         <image class="weui-media-box__thumb" src="{{itemName.img}}" />

@@ -1,2 +1,27 @@
-<!--pages/userInfo/userInfo.wxml-->
-<text>pages/userInfo/userInfo.wxml</text>
+<view class="page">
+    <!--头部结束-->
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">用户信息</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_appmsg" >
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg user_header">
+                        <open-data type="userAvatarUrl" ></open-data>
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">
+                            <open-data type="userNickName"></open-data>
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <navigator url="/pages/expressage/expressage">
+                <view class="weui-panel__hd">借阅进度</view>
+            </navigator>
+        </view>
+    </view>
+</view>
