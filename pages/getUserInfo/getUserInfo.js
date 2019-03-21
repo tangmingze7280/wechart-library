@@ -14,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     //测试
 
   },
@@ -68,7 +67,7 @@ Page({
 
   },
   bindGetUserInfo: function(e) {
-    console.log(e.detail.userInfo)
+    // console.log(e.detail.userInfo)
     comments.onLogin(e.detail.userInfo);
     wx.setStorage({
       key:"AuthUser",

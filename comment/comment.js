@@ -29,15 +29,18 @@ function onLogin(userInfo) {
                     },
                     success: function (res) {
                         const self = this
-                        if (res.state==200) {
+                       // console.log(res.data.data.city)
+                        if (res.data.state==200) {
                             //获取到用户凭证 存儲 3rd_session
-                            console.log(res)
-                            var json = JSON.parse(res.data)
+                            var json = res.data.data
                              wx.setStorage({
                                  key: "third_Session",
-                                 data: json.third_Session
+                                 data: json
                              })
-                            wx.redirect("/pages/index/index")
+                            //console.log(json)
+                            wx.switchTab({ //跳转到tarbar页并关闭其他页面
+                                url: '/pages/index/index'
+                            })
                         } else {
                             console.log('服务器异常')
                         }
