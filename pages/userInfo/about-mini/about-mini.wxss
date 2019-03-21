@@ -1,0 +1,6 @@
+.title_align{
+    margin-left: 40px;
+}
+.title_align_tt{
+    margin-left: 45px;
+}

@@ -1,0 +1,45 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title title_align">关于</view>
+        <view class="page__desc  title_align_tt">借书小程序</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells__title">原创声明</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">唐鸣泽原创小程序作品</view>
+                <view class="weui-cell__ft">2019/03/29</view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">小程序的目的</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="/static/imgs/lljji.png"
+                           style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">实现某图书馆借书</view>
+                <view class="weui-cell__ft">图书评论算的话</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="/static/imgs/lljji.png"
+                           style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">图书社交</view>
+                <view class="weui-cell__ft">书评交流部分</view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">带跳转的列表项</view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的github</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+
+        </view>
+
+    </view>
+</view>

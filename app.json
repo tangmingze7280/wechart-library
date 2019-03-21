@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/userInfo/about-mini/about-mini",
     "pages/getUserInfo/getUserInfo",
     "pages/userInfo/userInfo",
     "pages/expressage/expressage",
@@ -8,6 +9,7 @@
     "pages/book-alive/book-alive",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
