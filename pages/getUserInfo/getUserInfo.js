@@ -7,8 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canIUse:wx.canIUse('button.open-type.getUserInfo'),
-    userInfo:{}
+    canIUse:wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
@@ -16,7 +15,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    comments.userLogin()
     //测试
 
   },
@@ -70,38 +68,11 @@ Page({
 
   },
   bindGetUserInfo: function(e) {
-    this.getLoginPermain(e)
     console.log(e.detail.userInfo)
+    comments.onLogin(e.detail.userInfo);
     wx.setStorage({
       key:"AuthUser",
       data:e.detail.userInfo
     });
-  },
-  getLoginPermain:function(e){
-    var that=this
-    wx.getSetting({
-      success(res) {
-        console.log(res)
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res)
-              console.log(res.userInfo)
-              that.setData({
-                userInfo: res.userInfo
-              })
-            }
-          })
-
-        }else{
-          console.log('没授权')
-          that.setData({
-            canIUse: true
-          })
-        }
-
-      }
-    })
   }
 })

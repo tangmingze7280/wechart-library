@@ -2,30 +2,6 @@
 
 App({
     onLaunch: function () {
-        wx.checkSession({
-            success: function (data) {
-                console.log(data)
-            /*    wx.navigateTo({
-                  url: '/pages/index/index'
-                })*/
-            },
-            fail: function (e) {
-               /* //不存在登陆态
-                wx.login({
-                    success(data){
-                        console.log(data,data.code)
-                        var url="https://api.weixin.qq.com/sns/jscode2session?appid=wx2fa6a201795b152e&secret=81df253f70c995803ba26ee21be6bc8b&grant_type=authorization_code&js_code="+data.code
-                        wx.request({
-                            url:url,
-                            success:res=>{
-                                console.log(res)
-                            }
-                        })
-                    }
-                })
-                console.log(e)*/
-            }
-        })
     }
 })
 
