@@ -1,10 +1,15 @@
+const DEV_URL="http://localhost:8999/library";
+const PROP_URL=""
 function userLogin() {
     wx.checkSession({
         success: function () {
+            console.log('已经登陆！')
             //存在登陆态
+            wx.navigateBack('/pages/index/index')
         },
         fail: function () {
             //不存在登陆态
+            console.log('尚未登陆')
             onLogin()
         }
     })
@@ -16,14 +21,15 @@ function onLogin() {
             if (res.code) {
                 //发起网络请求
                 wx.request({
-                    url: 'Our Server ApiUrl',
+                    url: DEV_URL+'/login',
                     data: {
                         code: res.code
                     },
                     success: function (res) {
                         const self = this
-                        if (逻辑成功) {
+                        if (true) {
                             //获取到用户凭证 存儲 3rd_session
+                            console.log(res)
                             var json = JSON.parse(res.data.Data)
                             wx.setStorage({
                                 key: "third_Session",
@@ -36,7 +42,7 @@ function onLogin() {
                         }
                     },
                     fail: function (res) {
-
+                        console.log(res,'失败')
                     }
                 })
             }
@@ -65,7 +71,7 @@ function userInfoSetInSQL(userInfo) {
         key: 'third_Session',
         success: function (res) {
             wx.request({
-                url: 'Our Server ApiUrl',
+                url: DEV_URL+'',
                 data: {
                     third_Session: res.data,
                     nickName: userInfo.nickName,
@@ -86,4 +92,10 @@ function userInfoSetInSQL(userInfo) {
             })
         }
     })
+}
+module.exports={
+    userLogin:userLogin,
+    onLogin:onLogin,
+    getUserInfo:getUserInfo,
+    userInfoSetInSQL:userInfoSetInSQL
 }

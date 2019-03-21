@@ -28,6 +28,7 @@ Page({
                 });
             }
         });
+      
     },
     tabClick: function (e) {
         this.setData({
@@ -68,6 +69,5 @@ Page({
         this.setData({
             inputVal: e.detail.value
         });
-        wx.post
     }
 });

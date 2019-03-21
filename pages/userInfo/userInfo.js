@@ -28,15 +28,31 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        wx.checkSession({
+        let _this=this
+       /* wx.checkSession({
             success: function (data) {
                 console.log(data)
             },
             fail: function (e) {
                 //不存在登陆态
+                wx.login({
+                    success(res) {
+                        if (res.code) {
+                            // 发起网络请求
+                            wx.request({
+                                url: 'https://test.com/onLogin',
+                                data: {
+                                    code: res.code
+                                }
+                            })
+                        } else {
+                            console.log('登录失败！' + res.errMsg)
+                        }
+                    }
+                })
                 console.log(e)
             }
-        })
+        })*/
 
     },
 
