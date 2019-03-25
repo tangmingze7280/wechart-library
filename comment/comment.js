@@ -42,13 +42,12 @@ function onLogin(userInfo) {
                                 url: '/pages/index/index'
                             })
                         } else {
-                            console.log('')
                             wx.showModal({
-                                content: '授权失败，请重新授权',
+                                content: '用户权限获取失败',
                                 showCancel: false,
                                 success: function (res) {
                                     if (res.confirm) {
-                                        console.log('用户点击确定')
+                                        console.log('请检查appid和secretId')
                                     }
                                 }
                             });
@@ -56,6 +55,15 @@ function onLogin(userInfo) {
                     },
                     fail: function (res) {
                         console.log(res, '失败')
+                        wx.showModal({
+                            content: '授权失败，请重新授权',
+                            showCancel: false,
+                            success: function (res) {
+                                if (res.confirm) {
+                                    console.log('用户点击确定')
+                                }
+                            }
+                        });
                     }
                 })
             }
@@ -95,7 +103,7 @@ function userInfoSetInSQL(userInfo) {
                     country: userInfo.country
                 },
                 success: function (res) {
-                    if (逻辑成功) {
+                    if (true) {
                         //SQL更新用户数据成功
                     } else {
                         //SQL更新用户数据失败

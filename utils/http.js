@@ -7,7 +7,10 @@ function POST(url, params) {
             data: params,
             method: 'POST',
             success: function (res) {
-                resolve(res.data);
+                resolve(res);
+            },
+            fail:function (e) {
+                reject(e)
             }
         })
     });
@@ -21,7 +24,7 @@ function GET(url, params) {
             data: params,
             method: 'POST',
             success: function (res) {
-                resolve(res.data);
+                resolve(res);
             },
             fail:function (e) {
                 reject(e)
