@@ -2,5 +2,6 @@
     margin-left: 40px;
 }
 .title_align_tt{
+    color:#999;
     margin-left: 45px;
 }

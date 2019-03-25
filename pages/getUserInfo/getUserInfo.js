@@ -67,11 +67,7 @@ Page({
 
   },
   bindGetUserInfo: function(e) {
-    // console.log(e.detail.userInfo)
+    //登陆 同步微信号/用户信息
     comments.onLogin(e.detail.userInfo);
-    wx.setStorage({
-      key:"AuthUser",
-      data:e.detail.userInfo
-    });
   }
 })

@@ -42,7 +42,16 @@ function onLogin(userInfo) {
                                 url: '/pages/index/index'
                             })
                         } else {
-                            console.log('服务器异常')
+                            console.log('')
+                            wx.showModal({
+                                content: '授权失败，请重新授权',
+                                showCancel: false,
+                                success: function (res) {
+                                    if (res.confirm) {
+                                        console.log('用户点击确定')
+                                    }
+                                }
+                            });
                         }
                     },
                     fail: function (res) {
