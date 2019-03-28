@@ -1,5 +1,5 @@
 const DEV_URL="http://localhost:8999/library";//开发api路径
-const PROP_URL=""//代替者
+const PROP_URL=""//生产api路径
 function POST(url, params) {
     let promise = new Promise(function (resolve, reject) {
         wx.request({
@@ -22,9 +22,12 @@ function GET(url, params) {
         wx.request({
             url: DEV_URL+url,
             data: params,
-            method: 'POST',
+            method: 'GET',
             success: function (res) {
                 resolve(res);
+                if(res.data.state!=200){
+                    reject(res)
+                }
             },
             fail:function (e) {
                 reject(e)

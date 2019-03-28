@@ -1,4 +1,5 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+var base_sreach=require( '../../utils/base_sreach');
 Page({
     data: {
         tabs: ["选项一", "选项二", "选项三"],
@@ -37,22 +38,33 @@ Page({
         });
     },
     classify: function () {
-        /*页面跳转待定*/
-        /*wx.navigateTo({
-          url: '/pages/first-btn/first-btn',
 
-        })*/
         /*下拉选项*/
-        wx.showActionSheet({
-            itemList: ['文学', '小说', '科普'],
-            success: function (res) {
-                console.log(res)
-                /*判断是否点击取消按钮如果点击取消按钮怎不做处理*/
-                if (!res.cancel) {
-                    console.log(res.tapIndex)
+        var itemList= []
+        var result=base_sreach.getClassifList();
+        result.then(res=>{
+            console.log(res)
+            itemList=res.data.data
+            wx.showActionSheet({
+                itemList: itemList,
+                //  itemList: itemList,
+                success: function (res) {
+                    console.log(itemList[res])
+
+                    /*判断是否点击取消按钮如果点击取消按钮怎不做处理*/
+                    if (!res.cancel) {
+                        console.log(res.tapIndex)
+                    }
                 }
-            }
-        });
+            });
+        }).catch(err=>{
+            console.log(err)
+            wx.showToast({
+                title: err.msg,
+                icon: '/static/imgs/icon_nav_special.png'
+            })
+        })
+
     },
     showInput: function () {
         this.setData({

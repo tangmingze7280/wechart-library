@@ -1,11 +1,10 @@
 {
   "pages": [
-    
+    "pages/index/index",
     "pages/getUserInfo/getUserInfo",
     "pages/userInfo/userInfo",
     "pages/expressage/expressage",
     "pages/first-btn/first-btn",
-    "pages/index/index",
     "pages/book-alive/book-alive",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book",
