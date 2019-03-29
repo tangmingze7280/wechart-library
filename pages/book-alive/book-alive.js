@@ -1,4 +1,5 @@
 // pages/book-alive/book-alive.js
+var base_sreach=require('../../utils/base_sreach.js')
 Page({
 
     /**
@@ -22,11 +23,13 @@ Page({
      */
     onLoad: function (options) {
         let _this = this
-        console.log(options)
+        /*console.log(options)
         this.setData({
             bookName: options.nextBookName
-        })
-        console.log(this.bookName)
+        })*/
+        // console.log(_this.bookName)
+        console.log("-------------")
+        this.getBookInfoforPage();
     },
 
     /**
@@ -75,6 +78,22 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
+
+    },
+    getBookInfoforPage(bookName={bookName:'哲学的感悟'}){
+       /* if(!bookName){
+            bookName="哲学的感悟"
+        }*/
+        let promise = base_sreach.getBookInfoByBookName(bookName);
+        let _this=this;
+        promise.then(res=>{
+            console.log(res)
+            _this.setData({
+                book:res.data.data
+            })
+        }).catch(err=>{
+            console.log(err)
+        })
 
     }
 })

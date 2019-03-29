@@ -2,7 +2,7 @@
 <import src="/templates/page-status-indicator/index" />
 <template data="{{pageStatus}}" is="page-status-indicator"></template>-->
 <!-- 获取到图书信息 -->
-<block wx:if="{{pageStatus == 'done'}}">
+<block wx:if="{{pageStatus == 'loading'}}">
     <!-- 图书信息 -->
     <view class="ui-panel ui-book-card">
         <view class="ui-book-card__info font-gray-26">
@@ -60,11 +60,11 @@
     <!-- 底部菜单 -->
     <view class="menubar">
         <view class="menubar__icon" data-target="add" catchtap="onNavigate">
-            <image class="menubar__icon-img" src="/images/icon_add_to_booklist.png" mode="aspectFit"></image>
+            <image class="menubar__icon-img" src="/static/imgs/icon_me_fill.png" mode="aspectFit"></image>
             <span class="menubar__icon-text">加入书单</span>
         </view>
         <view class="menubar__icon" data-target="review" catchtap="onNavigate">
-            <image class="menubar__icon-img" src="/images/icon_review.png" mode="widthFix"></image>
+            <image class="menubar__icon-img" src="/static/imgs/icon_me_fill.png" mode="widthFix"></image>
             <span class="menubar__icon-text">查看书评</span>
         </view>
         <button class="menubar__btn" type="primary" bindtap="onShowPopup">借阅此书</button>
@@ -97,5 +97,5 @@
         </scroll-view>
     </popup>
 </block>
-<!--
+
 <!--<template wx:elif="{{pageStatus == 'nodata'}}" is="page-empty" data="{{message: '系统中暂无该图书信息，您可以通过图书wiki系统为该图书创建一个新条目', btnText: '创建新条目'}}"></template>&ndash;&gt;-->

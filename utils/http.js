@@ -1,10 +1,10 @@
 const DEV_URL="http://localhost:8999/library";//开发api路径
-const PROP_URL=""//生产api路径
-function POST(url, params) {
+const PROP_URL="https://www.gttview.club:8999/library"//生产api路径
+function POST(url, params="") {
     let promise = new Promise(function (resolve, reject) {
         wx.request({
             url: DEV_URL+url,
-            data: params,
+            data: params?params:{},
             method: 'POST',
             success: function (res) {
                 resolve(res);
@@ -17,7 +17,7 @@ function POST(url, params) {
     return promise
 }
 //成功回调then  失败回调 catch
-function GET(url, params) {
+function GET(url, params='') {
     let promise = new Promise(function (resolve, reject) {
         wx.request({
             url: DEV_URL+url,
