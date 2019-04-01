@@ -11,24 +11,24 @@
             <view>作者:
                 <text wx:for="{{book.author}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
             </view>
-            <view wx:if="{{book.translator.length}}">译者:
+            <view wx:if="{{book.translator.trim.length}}">译者:
                 <text wx:for="{{book.translator}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
             </view>
             <view>出版社: {{book.publisher}}</view>
             <view>出版时间: {{book.pubdate}}</view>
-            <view>分类号: {{book.class_num}}</view>
-            <view>索书号: {{book.call_number}}</view>
+            <view>分类号: {{book.classNum}}</view>
+            <view>索书号: {{book.callNumber}}</view>
             <view>页数: {{book.page}}页</view>
             <view>字数: 约{{book.word}}字</view>
             <view>ISBN: {{book.isbn}}</view>
         </view>
-        <image class="ui-book-card__img" src="{{book.imgs.small}}" mode="widthFix" bindtap="onPreview"></image>
+        <image class="ui-book-card__img" src="{{JSON.parse(book.imgs.small)}}" mode="widthFix" bindtap="onPreview"></image>
     </view>
     <!-- 馆藏信息 -->
     <view class="ui-label">馆藏信息</view>
     <view class="ui-panel" hover-class="ui--active" bindtap="onShowPopup">
         <view class="weui-cell">
-            <view class="weui-cell__bd font-black-26">共有<span class="color-green"> {{book.available_num}} </span>本可借</view>
+            <view class="weui-cell__bd font-black-26">共有<span class="color-green"> {{book.availableNum}} </span>本可借</view>
             <view class="weui-cell__ft_in-access"></view>
         </view>
     </view>
@@ -36,9 +36,9 @@
     <view class="ui-label">内容简介</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.introduction || "暂无内容简介"}}</view>
     <view class="ui-label">作者简介</view>
-    <view class="ui-card font-black-26 pre-wrap">{{book.author_intro || "暂无作者简介"}}</view>
+    <view class="ui-card font-black-26 pre-wrap">{{book.authorIntroduction || "暂无作者简介"}}</view>
     <view class="ui-label">译者简介</view>
-    <view class="ui-card font-black-26 pre-wrap">{{book.translator_intro || "暂无译者简介"}}</view>
+    <view class="ui-card font-black-26 pre-wrap">{{book.translatorIntroduction || "暂无译者简介"}}</view>
     <view class="ui-label">目录</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.catalog || "暂无目录"}}</view>
     <view class="ui-label">试读</view>

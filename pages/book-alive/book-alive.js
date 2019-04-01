@@ -89,7 +89,7 @@ Page({
         promise.then(res=>{
             console.log(res)
             _this.setData({
-                book:res.data.data
+                book:res.data
             })
         }).catch(err=>{
             console.log(err)

@@ -23,10 +23,16 @@
                     <!--<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>-->
                     <view class="weui-flex_item">
                         <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
-                                bindtap="classify">
+                                bindtap="classify" wx:if="{{sreachOrClassif}}">
                             <text class="font-gray-26">分类</text>
                             <icon class="icon-right"></icon>
                         </button>
+                        <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
+                                bindtap="sreachBookList" wx:else>
+                            <text class="font-gray-26">搜索</text>
+                            <icon class="icon-right"></icon>
+                        </button>
+
                     </view>
                 </view>
             </view>
@@ -43,6 +49,27 @@
     </view>
     <!--头部结束-->
     <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">热门图书</view>
+            <view class="weui-panel__bd">
+                <swiper
+                    indicator-dots="{{indicatorDots}}"
+                    autoplay="{{true}}"
+                    interval="{{interval}}"
+                    duiation="{{duiation}}"
+                    circular="{{true}}"
+                    indicator-color="{{indicatorColor}}"
+                >
+                    <block wx:for="{{imgUrls}}" wx:key="index">
+                        <navigator url="/pages/book-alive/book-alive?hotBookIndex={{index}}" hover-class="weui-cell_active">
+                            <swiper-item>
+                                <image src="{{item}}" class="slide-image" width="100rpx" height="150" />
+                            </swiper-item>
+                        </navigator>
+                    </block>
+                </swiper>
+            </view>
+        </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">阅读统计</view>
             <view class="weui-panel__bd" style="display: flex;flex-direction: row!important;">

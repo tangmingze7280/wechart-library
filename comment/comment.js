@@ -1,4 +1,4 @@
-const DEV_URL = "http://localhost:8999/library";
+const DEV_URL = "https://127.0.0.1:8999/library";
 const PROP_URL = ""
 
 function userLogin() {
@@ -30,7 +30,8 @@ function onLogin(userInfo) {
                     success: function (res) {
                         const self = this
                        // console.log(res.data.data.city)
-                        if (res.data.state==200) {
+                        console.log(res)
+                        if (res.data.state && res.data.state==200) {
                             //获取到用户凭证 存儲 3rd_session
                             var json = res.data.data
                              wx.setStorage({

@@ -1,4 +1,4 @@
-const DEV_URL="http://localhost:8999/library";//开发api路径
+const DEV_URL="https://127.0.0.1:8999/library";//开发api路径
 const PROP_URL="https://www.gttview.club:8999/library"//生产api路径
 function POST(url, params="") {
     let promise = new Promise(function (resolve, reject) {
