@@ -99,15 +99,13 @@ Page({
                 sreachOrClassif:true
             })
         }
-        console.log(e)
         this.setData({
             inputVal: e.detail.value
         });
         let promise =BASE_SREACH.getBookNameForSreach({simpleTitle: e.detail.value});
         promise.then((res)=>{
-            console.log(res)
             _this.setData({
-                selectLimit:res.data
+                selectLimit:res.data.data
             })
         }).catch((err)=>{
             console.log(err)
