@@ -106,6 +106,9 @@ Page({
         let promise =BASE_SREACH.getBookNameForSreach({simpleTitle: e.detail.value});
         promise.then((res)=>{
             console.log(res)
+            _this.setData({
+                selectLimit:res.data
+            })
         }).catch((err)=>{
             console.log(err)
         })
