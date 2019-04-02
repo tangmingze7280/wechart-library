@@ -7,7 +7,7 @@
     <view class="ui-panel ui-book-card">
         <view class="ui-book-card__info font-gray-26">
             <view class="ui-book-card__info-title font-black-34">{{book.title}}</view>
-            <view>评分：<span class="color-yellow">{{book.total_score}} </span>({{book.review_num}}条评论)</view>
+            <view>评分：<span class="color-yellow">{{book.totalScore}} </span>({{book.reviewNum}}条评论)</view>
             <view>作者:
                 <text wx:for="{{book.author}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
             </view>
@@ -36,7 +36,7 @@
     <view class="ui-label">内容简介</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.introduction || "暂无内容简介"}}</view>
     <view class="ui-label">作者简介</view>
-    <view class="ui-card font-black-26 pre-wrap">{{book.authorIntroduction || "暂无作者简介"}}</view>
+    <view class="ui-card font-black-26 pre-wrap">{{book.authorIntroduction.split || "暂无作者简介"}}</view>
     <view class="ui-label">译者简介</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.translatorIntroduction || "暂无译者简介"}}</view>
     <view class="ui-label">目录</view>

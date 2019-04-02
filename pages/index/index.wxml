@@ -1,4 +1,4 @@
-<view class="page">
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__hd">
 
         <view class='search_header'>
@@ -22,15 +22,13 @@
                     </view>
                     <!--<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>-->
                     <view class="weui-flex_item">
-                        <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
-                                bindtap="classify" wx:if="{{sreachOrClassif}}">
-                            <text class="font-gray-26">分类</text>
-                            <icon class="icon-right"></icon>
+                        <button class="weui-btn mini-btn" type="default" size="mini"  bindtap="classify" wx:if="{{sreachOrClassif}}">
+                             <text style="font-size: 26rpx; color: #888;">分类</text>
                         </button>
-                        <button type="default" size="mini" style="align-items: center;line-height: 60rpx;height: 72rpx"
+                        <button class="weui-btn mini-btn" type="default" size="mini"
                                 bindtap="sreachBookList" wx:else>
-                            <text class="font-gray-26">搜索</text>
-                            <icon class="icon-right"></icon>
+                            <text style="font-size: 26rpx; color: #888;">搜索</text>
+
                         </button>
 
                     </view>
@@ -51,19 +49,19 @@
     <view class="page__bd">
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">热门图书</view>
-            <view class="weui-panel__bd">
+            <view class="weui-panel__bd" style="text-align: center ;padding: 0 10px">
                 <swiper
-                    indicator-dots="{{indicatorDots}}"
-                    autoplay="{{true}}"
-                    interval="{{interval}}"
-                    duiation="{{duiation}}"
-                    circular="{{true}}"
-                    indicator-color="{{indicatorColor}}"
+                        indicator-dots="{{indicatorDots}}"
+                        autoplay="{{true}}"
+                        interval="{{interval}}"
+                        duiation="{{duiation}}"
+                        circular="{{true}}"
+                        indicator-color="{{indicatorColor}}"
                 >
                     <block wx:for="{{imgUrls}}" wx:key="index">
-                        <navigator url="/pages/book-alive/book-alive?hotBookIndex={{index}}" hover-class="weui-cell_active">
+                        <navigator url="/pages/book-alive/book-alive?hotBookIndex={{index}}">
                             <swiper-item>
-                                <image src="{{item}}" class="slide-image" width="100rpx" height="150" />
+                                <image src="{{item}}" class="slide-image" width="400rpx" height="150rpx"/>
                             </swiper-item>
                         </navigator>
                     </block>
@@ -77,13 +75,19 @@
                     <view class="weui-flex__item">
                         <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text">书籍数量</view>
-                            <view class="weui-media-box__desc" style="color: #0bb20c"><text style="font-size: 100rpx">10</text>本</view>
+                            <view class="weui-media-box__desc" style="color: #0bb20c">
+                                <text style="font-size: 100rpx">10</text>
+                                本
+                            </view>
                         </view>
                     </view>
-                    <view >
-                        <view class="weui-media-box weui-media-box_text" >
+                    <view>
+                        <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text">预估页数</view>
-                            <view class="weui-media-box__desc" style="color: #a192b2"><text style="font-size: 100rpx">3000</text>页</view>
+                            <view class="weui-media-box__desc" style="color: #a192b2">
+                                <text style="font-size: 100rpx">3000</text>
+                                页
+                            </view>
                         </view>
                     </view>
                 </view>
@@ -99,10 +103,11 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">近期排行</view>
-            <view class="weui-panel__bd" wx:for="{{bookRunking}}"  wx:for-item="itemName" wx:key="index">
-                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-item="itemName" wx:key="index">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}"
+                           class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}"/>
                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                         <view class="weui-media-box__title">{{itemName.bookName}}</view>
@@ -122,9 +127,10 @@
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">推荐图书</view>
             <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:key="index" wx:for-item="itemName">
-                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}"
+                           class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}"/>
                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                         <view class="weui-media-box__title">{{itemName.bookName}}</view>
@@ -144,10 +150,13 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">推荐书单</view>
-            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName" wx:key="index">
-                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="border-bottom: 1rpx solid #eee">
-                        <image class="weui-media-box__thumb" src="{{itemName.img}}" />
+            <view class="weui-panel__bd" wx:for="{{bookRunking}}" wx:for-index="index" wx:for-item="itemName"
+                  wx:key="index">
+                <navigator url="/pages/book-alive/book-alive?nextBookName={{itemName.bookName}}"
+                           class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"
+                          style="border-bottom: 1rpx solid #eee">
+                        <image class="weui-media-box__thumb" src="{{itemName.img}}"/>
                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                         <view class="weui-media-box__title">{{itemName.bookName}}</view>

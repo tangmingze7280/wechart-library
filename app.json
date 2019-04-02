@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/book-list/book-list",
     "pages/index/index",
+    "pages/book-alive/book-alive",
+
     "pages/getUserInfo/getUserInfo",
     "pages/userInfo/userInfo",
-    "pages/book-list/book-list",
-    "pages/book-alive/book-alive",
 
     "pages/expressage/expressage",
     "pages/first-btn/first-btn",

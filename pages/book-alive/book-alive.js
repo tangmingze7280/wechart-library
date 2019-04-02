@@ -1,5 +1,6 @@
 // pages/book-alive/book-alive.js
 var base_sreach=require('../../utils/base_sreach.js')
+var util=require('../../utils/util.js')
 Page({
 
     /**
@@ -29,7 +30,7 @@ Page({
         })*/
         // console.log(_this.bookName)
         console.log("-------------")
-        this.getBookInfoforPage();
+        this.getBookInfoforPage(options.nextBookName);
     },
 
     /**
@@ -80,11 +81,11 @@ Page({
     onShareAppMessage: function () {
 
     },
-    getBookInfoforPage(bookName={bookName:'哲学的感悟'}){
+    getBookInfoforPage(bookName='哲学的感悟'){
        /* if(!bookName){
             bookName="哲学的感悟"
         }*/
-        let promise = base_sreach.getBookInfoByBookName(bookName);
+        let promise = base_sreach.getBookInfoByBookName({bookName:bookName});
         let _this=this;
         promise.then(res=>{
             console.log(res)
@@ -93,6 +94,7 @@ Page({
             })
         }).catch(err=>{
             console.log(err)
+            util.wxalert(err.message)
         })
 
     }
