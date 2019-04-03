@@ -114,7 +114,7 @@ Page({
     },
 
     selectBookList:function(param){
-        let _this=this;
+       /* let _this=this;
         getBookInfoBySomeOne(param).then((res) => {
             console.log(res)
             _this.setData({
@@ -123,7 +123,7 @@ Page({
             wx.hideLoading()
         }).catch((err) => {
             console.log(err)
-        })
+        })*/
     }
 
 })
