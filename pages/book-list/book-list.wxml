@@ -12,7 +12,7 @@
             <view>
                 评分:{{item.id||Math.random()}}
                 <text class="color-yellow">{{item.totalScore}}</text>（{{item.reviewNum}}条评论）</view>
-            <view>作者: <text wx:for="{{item.author}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text></view>
+            <view>作者: <text wx:for="{{item.author}}" wx:key="index" class="ui-book-card__info-name">{{item}}</text></view>
             <view>出版社: {{item.publisher}}</view>
             <view>出版日期: {{item.pubdate}}</view>
             <view>ISBN: {{item.isbn}}</view>

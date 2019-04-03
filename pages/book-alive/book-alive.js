@@ -88,7 +88,22 @@ Page({
         let promise = base_sreach.getBookInfoByBookName({bookName:bookName});
         let _this=this;
         promise.then(res=>{
-            console.log(res)
+            if(!res.data.title||res.data.title==null) {
+                console.log(1)
+                wx.navigateBack({
+                    delta: 1,
+                    success: (res) => {
+                        wx.showToast({
+                            title: '该书不存在',
+                            icon: 'none',
+                            duration: 2000
+                        })
+                    },
+                    fail: () => {
+
+                    }
+                })
+            }
             _this.setData({
                 book:res.data
             })

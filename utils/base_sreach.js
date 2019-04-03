@@ -31,5 +31,6 @@ module.exports={
     getBookListByClassif:getBookListByClassif,
     getBookInfoByBookName:getBookInfoByBookName,
     getBookNameForSreach:getBookNameForSreach,
-    getBookInfoBySomeOne:getBookInfoBySomeOne
+    getBookInfoBySomeOne:getBookInfoBySomeOne,
+    URL:http.URL
 }

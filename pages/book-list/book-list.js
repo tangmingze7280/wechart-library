@@ -32,8 +32,7 @@ Page({
             type: options.type || "",
             param:param
         })
-        this.selectBookList(param)
-
+        this.selectBookList()
 
     },
 
@@ -76,34 +75,8 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
-        var _this=this;
-        _this.setData({
-            loadMoreStatus:"loading"
-        })
-        this.setData({
-            pageNum:_this.data.pageNum+7
-        })
-        getBookInfoBySomeOne(_this.data.param).then((res) => {
-            console.log(res)
-            let b=res.data.data
-            if(!b){
-                console.log("1------------------------")
-                _this.setData({
-                    loadMoreStatus:"nomore"
-                })
-                return ;
-            }
-            let bookList=_this.data.books
-            bookList.push(...b)
-            _this.setData({
-                books:bookList,
-                loadMoreStatus:"hidding"
-            })
-            console.log(_this.data.books)
-        }).catch((err) => {
-            console.log(err)
-        })
+        wx.showLoading({title: '加载中', mask: true})
+        this.selectBookList()
     },
 
     /**
@@ -113,17 +86,42 @@ Page({
 
     },
 
-    selectBookList:function(param){
-       /* let _this=this;
-        getBookInfoBySomeOne(param).then((res) => {
+    selectBookList:function(){
+        var _this=this;
+        getBookInfoBySomeOne(_this.data.param).then((res) => {
             console.log(res)
+            let b=res.data.data
+            if(!b){
+                console.log("1------------------------")
+                _this.setData({
+                    loadMoreStatus:"nomore"
+                })
+                wx.showToast({
+                    title: '没有更多的数据了',
+                    icon: 'success',
+                    duration: 2000
+                })
+                return ;
+            }
+            let bookList=_this.data.books
+            bookList.push(...b)
             _this.setData({
-                books:res.data.data
+                books:bookList,
             })
+            console.log(_this.data.books)
             wx.hideLoading()
+            _this.setData({
+                pageNum:_this.data.pageNum+7
+            })
         }).catch((err) => {
             console.log(err)
-        })*/
+            wx.hideLoading()
+            _this.setData({
+                pageNum:_this.data.pageNum+7
+            })
+        })
+
+
     }
 
 })

@@ -38,5 +38,6 @@ function GET(url, params='') {
 }
 module.exports={
     POST:POST,
-    GET:GET
+    GET:GET,
+    URL:DEV_URL
 }

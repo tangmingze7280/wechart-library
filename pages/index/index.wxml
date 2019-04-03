@@ -3,35 +3,29 @@
 
         <view class='search_header'>
             <view class="weui-search-bar">
-                <view class="weui-flex">
-                    <view class="weui-flew__item">
-                        <view class="weui-search-bar__form">
-                            <view class="weui-search-bar__box">
-                                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
-                                       focus="{{inputShowed}}" bindinput="inputTyping"/>
-                                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                                    <icon type="clear" size="14"></icon>
-                                </view>
-                            </view>
-                            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                                <icon class="weui-icon-search" type="search" size="14"></icon>
-                                <view class="weui-search-bar__text">搜索</view>
-                            </label>
+                <view class="weui-search-bar__form">
+                    <view class="weui-search-bar__box">
+                        <icon class="weui-icon-search_in-box" type="search" size="14" ></icon>
+                        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
+                               focus="{{inputShowed}}" bindinput="inputTyping"/>
+                        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                            <icon type="clear" size="14"></icon>
                         </view>
                     </view>
-                    <!--<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>-->
-                    <view class="weui-flex_item">
-                        <button class="weui-btn mini-btn" type="default" size="mini"  bindtap="classify" wx:if="{{sreachOrClassif}}" bindtip="classify">
-                             <text style="font-size: 26rpx; color: #888;">分类</text>
-                        </button>
-                        <button class="weui-btn mini-btn" type="default" size="mini"
-                                bindtap="sreachBookList" wx:else>
-                            <text style="font-size: 26rpx; color: #888;">搜索</text>
-
-                        </button>
-
-                    </view>
+                    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                        <icon class="weui-icon-search" type="search" size="14"></icon>
+                        <view class="weui-search-bar__text">搜索</view>
+                    </label>
+                </view>
+                <view class="weui-search-bar__cancel-btn" >
+                    <button class="weui-btn mini-btn" type="default" size="mini" bindtap="classify"
+                            wx:if="{{sreachOrClassif}}" bindtip="classify">
+                        <text style="font-size: 26rpx; color: #888;">分类</text>
+                    </button>
+                    <button class="weui-btn mini-btn" type="default" size="mini"
+                            bindtap="sreachBookList" wx:else>
+                        <text style="font-size: 26rpx; color: #888;">搜索</text>
+                    </button>
                 </view>
             </view>
             <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}" wx:for="{{selectLimit}}"
@@ -59,7 +53,7 @@
                         indicator-color="{{indicatorColor}}"
                 >
                     <block wx:for="{{imgUrls}}" wx:key="index">
-                        <navigator url="/pages/book-alive/book-alive?hotBookIndex={{index}}">
+                        <navigator url="/pages/book-alive/book-alive?nextBookName={{selectLimit[index]}}">
                             <swiper-item>
                                 <image src="{{item}}" class="slide-image" width="400rpx" height="150rpx"/>
                             </swiper-item>
