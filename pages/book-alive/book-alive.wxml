@@ -34,7 +34,7 @@
     </view>
     <!-- 图书详情 -->
     <view class="ui-label">内容简介</view>
-    <view class="ui-card font-black-26 pre-wrap">{{book.introduction || "暂无内容简介"}}</view>
+    <view class="ui-card font-black-26 pre-wrap">{{book.description || "暂无内容简介"}}</view>
     <view class="ui-label">作者简介</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.authorIntroduction.split || "暂无作者简介"}}</view>
     <view class="ui-label">译者简介</view>

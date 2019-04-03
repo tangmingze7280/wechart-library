@@ -22,10 +22,14 @@ function getBookNameForSreach(simpleTitle={simpleTitle:'哲学的感悟'}){
     let promise=http.GET("/book/getBookNameForSreach",simpleTitle)
     return promise;
 }
-
+function getBookInfoBySomeOne(param={classif:'',runking:'',history:'',collection:'',pageSize:0,pageNum:0}){
+    let promise=http.GET("/book/getBookInfoBySomeOne",param)
+    return promise;
+}
 module.exports={
     getClassifList:getClassifList,
     getBookListByClassif:getBookListByClassif,
     getBookInfoByBookName:getBookInfoByBookName,
-    getBookNameForSreach:getBookNameForSreach
+    getBookNameForSreach:getBookNameForSreach,
+    getBookInfoBySomeOne:getBookInfoBySomeOne
 }

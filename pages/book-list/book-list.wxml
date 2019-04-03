@@ -1,35 +1,27 @@
-<view wx:if="{{type == 'recommend'}}" class="ui-label">
-    <view>根据你的借阅、搜索和收藏等历史行为为你推荐</view>
+<!-- 推荐书单、近期热门图书的描述信息 -->
+<view wx:if="{{type == 'recommend' || type == 'ranking'}}" class="ui-label">
+    <view wx:if="{{type == 'recommend'}}">根据你的借阅、收藏和评分等历史行为为你推荐</view>
+    <view wx:if="{{type == 'ranking'}}">最近七天的热门图书</view>
 </view>
-<view wx:if="{{booklists.length}}" class="weui-cells weui-cells_after-title">
-    <navigator wx:for="{{booklists}}" wx:key="{{item.id}}" class="weui-cell ui-booklist-card" hover-class="ui--active" url="/pages/booklist/children/booklist-detail?id={{item.id}}">
-        <image class="ui-booklist-card__img" src="{{item.image || '/images/icon_empty_booklist.png'}}" mode="aspectFill"></image>
-        <view class="ui-booklist-card__info">
-            <view class="ui-booklist-card__info-title font-black-34">{{item.title}}</view>
-            <view class="font-gray-26">
-                {{item.total}}本 by {{item.creator.nickname}}，{{item.favorited_num}}人收藏</view>
-        </view>
-        <view class="ui-icon-more-area" data-index="{{index}}" catchtap="onShowActionSheet" hover-stop-propagation>
-            <image src="/images/icon_more.png" mode="widthFix" class="ui-icon-more"></image>
+<!-- 图书列表 -->
+<view wx:if="{{books.length}}" class="weui-cells weui-cells_after-title">
+    <navigator wx:for="{{books}}" wx:key="{{item.id||Math.random()}}" class="weui-cell ui-book-card" hover-class="ui--active" data-index="{{index}}" data-id="{{item.id}}" url="/pages/book-alive/book-alive?nextBookName={{item.title}}">
+        <image class="ui-book-card__img" src="{{item.imgs.small}}" mode="widthFix"></image>
+        <view class="ui-book-card__info font-gray-26">
+            <view class="ui-book-card__info-title font-black-34">{{item.title}}</view>
+            <view>
+                评分:{{item.id||Math.random()}}
+                <text class="color-yellow">{{item.totalScore}}</text>（{{item.reviewNum}}条评论）</view>
+            <view>作者: <text wx:for="{{item.author}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text></view>
+            <view>出版社: {{item.publisher}}</view>
+            <view>出版日期: {{item.pubdate}}</view>
+            <view>ISBN: {{item.isbn}}</view>
+            <view>藏书量: {{item.totalNum}}（<text class="color-green">{{item.availableNum}}</text>本可借）</view>
+            <view wx:if="{{type == 'recommend'}}" class="ui-book-card__description">{{comments[index]}}</view>
         </view>
     </navigator>
 </view>
-<view  class="weui-cells weui-cells_after-title">
-    <navigator class="weui-cell ui-booklist-card" hover-class="ui--active" url="/pages/booklist/children/booklist-detail?id=1">
-        <image class="ui-booklist-card__img" src="{{item.image || '/images/icon_empty_booklist.png'}}" mode="aspectFill"></image>
-        <view class="ui-booklist-card__info">
-            <view class="ui-booklist-card__info-title font-black-34">
-                {{item.title}}
-            </view>
-            <view class="font-gray-26">
-                {{item.total}}本 by {{item.creator.nickname}}，{{item.favorited_num}}人收藏
-            </view>
-        </view>
-        <view class="ui-icon-more-area" data-index="{{index}}" catchtap="onShowActionSheet" hover-stop-propagation>
-            <image src="/images/icon_more.png" mode="widthFix" class="ui-icon-more"></image>
-        </view>
-    </navigator>
-</view>
-<!-- 加载更多、暂无数据 -->
-<load-more status="{{loadMoreStatus}}" nomore-text="没有更多书单了"></load-more>
-<no-data wx:if="{{isNoData}}"></no-data>
+<!-- 加载更多、暂无数据  不好用呢-->
+<!--<load-list status="{{loading}}" nomore-text="没有更多图书了"></load-list>-->
+<!--
+<no-data wx:if="{{isNoData}}"></no-data>-->

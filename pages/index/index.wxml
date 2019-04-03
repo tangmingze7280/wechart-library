@@ -22,7 +22,7 @@
                     </view>
                     <!--<view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>-->
                     <view class="weui-flex_item">
-                        <button class="weui-btn mini-btn" type="default" size="mini"  bindtap="classify" wx:if="{{sreachOrClassif}}">
+                        <button class="weui-btn mini-btn" type="default" size="mini"  bindtap="classify" wx:if="{{sreachOrClassif}}" bindtip="classify">
                              <text style="font-size: 26rpx; color: #888;">分类</text>
                         </button>
                         <button class="weui-btn mini-btn" type="default" size="mini"
@@ -70,7 +70,7 @@
         </view>
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">阅读统计</view>
-            <view class="weui-panel__bd" style="display: flex;flex-direction: row!important;">
+            <view class="weui-panel__bd">
                 <view class="weui-flex">
                     <view class="weui-flex__item">
                         <view class="weui-media-box weui-media-box_text">
@@ -81,7 +81,7 @@
                             </view>
                         </view>
                     </view>
-                    <view>
+                    <view class="weui-flex__item">
                         <view class="weui-media-box weui-media-box_text">
                             <view class="weui-media-box__title weui-media-box__title_in-text">预估页数</view>
                             <view class="weui-media-box__desc" style="color: #a192b2">
