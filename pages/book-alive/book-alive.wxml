@@ -22,13 +22,15 @@
             <view>字数: 约{{book.word}}字</view>
             <view>ISBN: {{book.isbn}}</view>
         </view>
-        <image class="ui-book-card__img" src="{{JSON.parse(book.imgs.small)}}" mode="widthFix" bindtap="onPreview"></image>
+        <image class="ui-book-card__img" src="{{JSON.parse(book.imgs.small)}}" mode="widthFix"
+               bindtap="onPreview"></image>
     </view>
     <!-- 馆藏信息 -->
     <view class="ui-label">馆藏信息</view>
     <view class="ui-panel" hover-class="ui--active" bindtap="onShowPopup">
         <view class="weui-cell">
-            <view class="weui-cell__bd font-black-26">共有<span class="color-green"> {{book.availableNum}} </span>本可借</view>
+            <view class="weui-cell__bd font-black-26">共有<span class="color-green"> {{book.availableNum}} </span>本可借
+            </view>
             <view class="weui-cell__ft_in-access"></view>
         </view>
     </view>
@@ -59,9 +61,9 @@
     <view class="font-28 color-blue tip" catchtap="onShowTip">对本页内容有疑问？</view>
     <!-- 底部菜单 -->
     <view class="menubar">
-        <view class="menubar__icon" data-target="add" catchtap="onNavigate">
+        <view class="menubar__icon" data-target="add" catchtap="updataCollection">
             <image class="menubar__icon-img" src="/static/imgs/icon_me_fill.png" mode="aspectFit"></image>
-            <span class="menubar__icon-text">加入书单</span>
+            <span class="menubar__icon-text">加入收藏</span>
         </view>
         <view class="menubar__icon" data-target="review" catchtap="onNavigate">
             <image class="menubar__icon-img" src="/static/imgs/icon_me_fill.png" mode="widthFix"></image>
@@ -72,25 +74,32 @@
     <!-- 馆藏列表 -->
     <popup title="请选择图书馆" hide-text="取消" show="{{libraryList.show}}" bindhide="onHidePopup">
         <scroll-view class="weui-cells weui-cells_after-title library-list" scroll-y>
-            <view wx:if="{{libraryList.data.length}}" wx:for="{{libraryList.data}}" wx:key="{{item.library.id}}" class="weui-cell" hover-class="ui--active" data-id="{{item.library.id}}" data-target="libraryItem" catchtap="onNavigate">
+            <view wx:if="{{libraryList.data.length}}" wx:for="{{libraryList.data}}" wx:key="{{item.library.id}}"
+                  class="weui-cell" hover-class="ui--active" data-id="{{item.library.id}}" data-target="libraryItem"
+                  catchtap="onNavigate">
                 <view class="library-item__info">
                     <view class="library-item__info-name">
                         <text class="font-black-34 ellipsis">{{item.library.name}}</text>
-                        <image wx:if="{{item.library.status}}" src="/images/icon_certificated.png" mode="aspectFit"></image>
-                        <image wx:else="{{item.library.status}}" src="/images/icon_uncertificated.png" mode="aspectFit"></image>
+                        <image wx:if="{{item.library.status}}" src="/images/icon_certificated.png"
+                               mode="aspectFit"></image>
+                        <image wx:else="{{item.library.status}}" src="/images/icon_uncertificated.png"
+                               mode="aspectFit"></image>
                     </view>
                     <view class="font-gray-26 ellipsis">
                         {{item.library.address}}
                     </view>
                 </view>
                 <view class="library-item__collection font-gray-26">
-                    馆藏：{{item.total_num}} | 可借：<span class="{{item.available_num == 0 ? 'color-gray' : 'color-orange'}}">{{item.available_num}}</span>
+                    馆藏：{{item.total_num}} | 可借：<span
+                        class="{{item.available_num == 0 ? 'color-gray' : 'color-orange'}}">{{item.available_num}}</span>
                 </view>
                 <view class="weui-cell__ft_in-access"></view>
             </view>
-            <load-more wx:if="{{libraryList.status == 'loading' || libraryList.status == 'nomore'}}" status="{{libraryList.status}}" loading-text="正在加载馆藏列表"></load-more>
+            <load-more wx:if="{{libraryList.status == 'loading' || libraryList.status == 'nomore'}}"
+                       status="{{libraryList.status}}" loading-text="正在加载馆藏列表"></load-more>
             <no-data wx:if="{{libraryList.status == 'nodata'}}" text="暂无馆藏信息"></no-data>
-            <view wx:if="{{libraryList.data.length}}" class="weui-cell" hover-class="ui--active" data-target="libraryList" catchtap="onNavigate">
+            <view wx:if="{{libraryList.data.length}}" class="weui-cell" hover-class="ui--active"
+                  data-target="libraryList" catchtap="onNavigate">
                 <view class="weui-cell__bd font-26 color-blue">查看所有图书馆</view>
                 <view class="weui-cell__ft_in-access"></view>
             </view>

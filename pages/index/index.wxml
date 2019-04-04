@@ -5,7 +5,7 @@
             <view class="weui-search-bar">
                 <view class="weui-search-bar__form">
                     <view class="weui-search-bar__box">
-                        <icon class="weui-icon-search_in-box" type="search" size="14" ></icon>
+                        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
                         <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
                                focus="{{inputShowed}}" bindinput="inputTyping"/>
                         <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
@@ -17,7 +17,7 @@
                         <view class="weui-search-bar__text">搜索</view>
                     </label>
                 </view>
-                <view class="weui-search-bar__cancel-btn" >
+                <view class="weui-search-bar__cancel-btn">
                     <button class="weui-btn mini-btn" type="default" size="mini" bindtap="classify"
                             wx:if="{{sreachOrClassif}}" bindtip="classify">
                         <text style="font-size: 26rpx; color: #888;">分类</text>

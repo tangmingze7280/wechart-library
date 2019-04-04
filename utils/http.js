@@ -36,8 +36,48 @@ function GET(url, params='') {
     });
     return promise
 }
+function PUT(url, params='') {
+    let promise = new Promise(function (resolve, reject) {
+        wx.request({
+            url: DEV_URL+url,
+            data: params,
+            method: 'PUT',
+            success: function (res) {
+                resolve(res);
+                if(res.data.state!=200){
+                    reject(res)
+                }
+            },
+            fail:function (e) {
+                reject(e)
+            }
+        })
+    });
+    return promise
+}
+function DELETE(url, params='') {
+    let promise = new Promise(function (resolve, reject) {
+        wx.request({
+            url: DEV_URL+url,
+            data: params,
+            method: 'PUT',
+            success: function (res) {
+                resolve(res);
+                if(res.data.state!=200){
+                    reject(res)
+                }
+            },
+            fail:function (e) {
+                reject(e)
+            }
+        })
+    });
+    return promise
+}
 module.exports={
     POST:POST,
     GET:GET,
-    URL:DEV_URL
+    URL:DEV_URL,
+    DELETE:DELETE,
+    PUT:PUT
 }

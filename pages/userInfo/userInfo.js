@@ -7,14 +7,34 @@ Page({
     data: {
         headerImg:'',
         userName:'',
-        isLogin:false
+        isLogin:false,
+        userCode:'xxx'
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      
+        var _this=this
+        var unic=''
+        try {
+            const value = wx.getStorageSync('third_Session')
+            if (value) {
+                unic=value
+            }else{
+                throw new Error("用户未登录");
+            }
+        } catch (e) {
+            console.log(e.message)
+            wx.navigateTo({
+              url: '/pages/getUserInfo/getUserInfo'
+            })
+        }
+        console.log(unic)
+        _this.setData({
+            userCode:unic
+        })
+        console.log(_this.data.userCode)
     },
 
     /**
@@ -29,30 +49,6 @@ Page({
      */
     onShow: function () {
         let _this=this
-       /* wx.checkSession({
-            success: function (data) {
-                console.log(data)
-            },
-            fail: function (e) {
-                //不存在登陆态
-                wx.login({
-                    success(res) {
-                        if (res.code) {
-                            // 发起网络请求
-                            wx.request({
-                                url: 'https://test.com/onLogin',
-                                data: {
-                                    code: res.code
-                                }
-                            })
-                        } else {
-                            console.log('登录失败！' + res.errMsg)
-                        }
-                    }
-                })
-                console.log(e)
-            }
-        })*/
 
     },
 

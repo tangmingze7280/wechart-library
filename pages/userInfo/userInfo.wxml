@@ -1,12 +1,12 @@
 <view class="page">
     <!--头部结束-->
-    <view class="page__bd">
+    <view class="page__hd">
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__hd">用户信息</view>
             <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_appmsg" >
+                <view class="weui-media-box weui-media-box_appmsg">
                     <view class="weui-media-box__hd weui-media-box__hd_in-appmsg user_header">
-                        <open-data type="userAvatarUrl" ></open-data><!--显示用户头像-->
+                        <open-data type="userAvatarUrl"></open-data><!--显示用户头像-->
                     </view>
                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                         <view class="weui-media-box__title">
@@ -18,37 +18,87 @@
             </view>
 
         </view>
-        <view class="weui-panel weui-panel_access">
-            <navigator url="/pages/first-btn/first-btn">
-                <view class="navigator_content">
-                    <view class="weui-panel__hd">借阅进度</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-panel">
+            <view class="weui-panel__hd">——</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                    <view class="weui-cells weui-cells_in-small-appmsg">
+                        <navigator url="/pages/first-btn/first-btn" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd"><image src="/static/imgs/sreach.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>借阅进度</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                        <navigator url="/pages/first-btn/first-btn" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd"><image src="/static/imgs/sreach.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>借阅历史</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                        <navigator url="/pages/first-btn/first-btn" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd"><image src="/static/imgs/sreach.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>我的书评</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                        <navigator url="/pages/book-list/book-list?collection={{userCode}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd"><image src="/static/imgs/sreach.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>我的收藏</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                        <navigator url="/pages/userInfo/about-mini/about-mini" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                            <view class="weui-cell__hd"><image src="/static/imgs/sreach.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>关于</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </navigator>
+                    </view>
                 </view>
-            </navigator>
+            </view>
         </view>
-        <view class="weui-panel weui-panel_access">
-            <navigator url="/pages/first-btn/first-btn">
-                <view class="navigator_content">
-                    <view class="weui-panel__hd">借阅历史</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-            </navigator>
-        </view>
-        <view class="weui-panel weui-panel_access">
-            <navigator url="/pages/first-btn/first-btn">
-                <view class="navigator_content">
-                    <view class="weui-panel__hd">我的书评</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-            </navigator>
-        </view>
-        <view class="weui-panel weui-panel_access">
-            <navigator url="/pages/userInfo/about-mini/about-mini">
-                <view class="navigator_content">
-                    <view class="weui-panel__hd">关于</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                </view>
-            </navigator>
-        </view>
+
     </view>
 </view>
+
+<!--
+<view class="weui-panel weui-panel_access">
+    <navigator url="/pages/first-btn/first-btn">
+        <view class="navigator_content">
+
+            <view class="weui-panel__bd">借阅进度</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </navigator>
+</view>
+<view class="weui-panel weui-panel_access">
+    <navigator url="/pages/first-btn/first-btn">
+        <view class="navigator_content">
+            <view class="weui-panel__hd">借阅历史</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </navigator>
+</view>
+<view class="weui-panel weui-panel_access">
+    <navigator url="/pages/first-btn/first-btn">
+        <view class="navigator_content">
+            <view class="weui-panel__hd">我的书评</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </navigator>
+</view>
+<view class="weui-panel weui-panel_access">
+    <navigator url="/pages/userInfo/about-mini/about-mini">
+        <view class="navigator_content">
+            <view class="weui-panel__hd">关于</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </navigator>
+</view>-->

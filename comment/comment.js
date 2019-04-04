@@ -36,9 +36,8 @@ function onLogin(userInfo) {
                             var json = res.data.data
                              wx.setStorage({
                                  key: "third_Session",
-                                 data: json
+                                 data: json.wxCode
                              })
-                            //console.log(json)
                             wx.switchTab({ //跳转到tarbar页并关闭其他页面
                                 url: '/pages/index/index'
                             })

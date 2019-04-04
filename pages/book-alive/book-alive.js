@@ -1,6 +1,7 @@
 // pages/book-alive/book-alive.js
-var base_sreach=require('../../utils/base_sreach.js')
-var util=require('../../utils/util.js')
+const base_sreach = require('../../utils/base_sreach.js')
+const util = require('../../utils/util.js')
+const collection=require('../../utils/collection_books')
 Page({
 
     /**
@@ -81,14 +82,11 @@ Page({
     onShareAppMessage: function () {
 
     },
-    getBookInfoforPage(bookName='哲学的感悟'){
-       /* if(!bookName){
-            bookName="哲学的感悟"
-        }*/
-        let promise = base_sreach.getBookInfoByBookName({bookName:bookName});
-        let _this=this;
-        promise.then(res=>{
-            if(!res.data.title||res.data.title==null) {
+    getBookInfoforPage(bookName = '哲学的感悟') {
+        let promise = base_sreach.getBookInfoByBookName({bookName: bookName});
+        let _this = this;
+        promise.then(res => {
+            if (!res.data.title || res.data.title == null) {
                 console.log(1)
                 wx.navigateBack({
                     delta: 1,
@@ -105,12 +103,37 @@ Page({
                 })
             }
             _this.setData({
-                book:res.data
+                book: res.data
             })
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
             util.wxalert(err.message)
         })
+    },
+    updataCollection:function(){
+        var _this=this
+        try {
+            const value = wx.getStorageSync('third_Session')
+            if (value) {
+                collection.updataCollection(value,_this.book.isbn).then((res)=>{
+                    console.log(res)
+                    wx.showToast({
+                        title: '收藏成功',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }).catch((err)=>{
+                    console.log(err)
+                })
 
+            }else{
+                throw new Error("用户未登录");
+            }
+        } catch (e) {
+            console.log(e.message)
+            wx.navigateTo({
+                url: '/pages/getUserInfo/getUserInfo'
+            })
+        }
     }
 })
