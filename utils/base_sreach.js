@@ -22,6 +22,11 @@ function getBookNameForSreach(simpleTitle={simpleTitle:'哲学的感悟'}){
     let promise=http.GET("/book/getBookNameForSreach",simpleTitle)
     return promise;
 }
+/**
+ * 根据收藏推荐图书,
+ * @param userCode
+ * @param bookCode
+ */
 function getBookInfoBySomeOne(param={classif:'',runking:'',history:'',collection:'',pageSize:0,pageNum:0}){
     let promise=http.GET("/book/getBookInfoBySomeOne",param)
     return promise;

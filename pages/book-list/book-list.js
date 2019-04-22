@@ -80,6 +80,11 @@ Page({
      */
     onReachBottom: function () {
         wx.showLoading({title: '加载中', mask: true})
+        this.setData({
+            loadMoreStatus:'loading'
+        })
+        var _this=this;
+        console.log(_this.data.loadMoreStatus)
         this.selectBookList()
     },
 
@@ -98,7 +103,7 @@ Page({
             if (!b) {
                 console.log("1------------------------")
                 _this.setData({
-                    loadMoreStatus: "nomore"
+                    loadMoreStatus: "nodata"
                 })
                 wx.showToast({
                     title: '没有更多的数据了',
@@ -115,14 +120,17 @@ Page({
             console.log(_this.data.books)
             wx.hideLoading()
             _this.setData({
-                pageNum: _this.data.pageNum + 7
+                pageNum: _this.data.pageNum + 7,
+                loadMoreStatus: "hidding"
             })
         }).catch((err) => {
             console.log(err)
             wx.hideLoading()
             _this.setData({
-                pageNum: _this.data.pageNum + 7
+                pageNum: _this.data.pageNum + 7,
+                loadMoreStatus:'hidding'
             })
+
         })
 
 

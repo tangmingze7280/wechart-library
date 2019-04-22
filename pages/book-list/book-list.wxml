@@ -30,8 +30,14 @@
 
         </view>
     </navigator>
+    <view class="weui-loadmore" wx:if="{{loadMoreStatus=='loading'}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{loadMoreStatus=='nodata'}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" wx:if="{{loadMoreStatus=='hidding'}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
 </view>
-<!-- 加载更多、暂无数据  不好用呢-->
-<!--<load-list status="{{loading}}" nomore-text="没有更多图书了"></load-list>-->
-<!--
-<no-data wx:if="{{isNoData}}"></no-data>-->
