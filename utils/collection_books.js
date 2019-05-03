@@ -13,10 +13,14 @@ function updataCollection(userCode,bookCode){
 function deleteCollection(userCode,bookCode){
     return http.DELETE("/collection/deleteCollection",{userCode:userCode,bookCode:bookCode})
 }
+function getConllections(userCode="oR5YB5SwlSZS0m-RqCXFMhkxAVr0",pageSize=5,pageNum){
+    return http.GET("/collection/getCollectionsList",{userCode:userCode,pageSize:pageSize,pageNum:pageNum});
+}
 
 
 
 module.exports={
     updataCollection:updataCollection,
-    deleteCollection:deleteCollection
+    deleteCollection:deleteCollection,
+    getConllections:getConllections
 }

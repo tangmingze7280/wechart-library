@@ -136,9 +136,9 @@ Page({
             const value = wx.getStorageSync('third_Session')
             if (value) {
                 collection.updataCollection(value,_this.data.book.isbn).then((res)=>{
-                    console.log(res)
+                    console.log(res);
                     wx.showToast({
-                        title: '收藏成功',
+                        title: res.data.msg,
                         icon: 'success',
                         duration: 2000
                     })

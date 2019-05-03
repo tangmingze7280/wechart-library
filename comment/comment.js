@@ -33,11 +33,16 @@ function onLogin(userInfo) {
                         console.log(res)
                         if (res.data.state && res.data.state==200) {
                             //获取到用户凭证 存儲 3rd_session
+                            console.log(res)
                             var json = res.data.data
                              wx.setStorage({
                                  key: "third_Session",
                                  data: json.wxCode
                              })
+                            wx.setStorage({
+                                key:"userInfo",
+                                data:JSON.stringify(json)
+                            })
                             wx.switchTab({ //跳转到tarbar页并关闭其他页面
                                 url: '/pages/index/index'
                             })
