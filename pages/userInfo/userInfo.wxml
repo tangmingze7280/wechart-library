@@ -67,38 +67,3 @@
 
     </view>
 </view>
-
-<!--
-<view class="weui-panel weui-panel_access">
-    <navigator url="/pages/first-btn/first-btn">
-        <view class="navigator_content">
-
-            <view class="weui-panel__bd">借阅进度</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-    </navigator>
-</view>
-<view class="weui-panel weui-panel_access">
-    <navigator url="/pages/first-btn/first-btn">
-        <view class="navigator_content">
-            <view class="weui-panel__hd">借阅历史</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-    </navigator>
-</view>
-<view class="weui-panel weui-panel_access">
-    <navigator url="/pages/first-btn/first-btn">
-        <view class="navigator_content">
-            <view class="weui-panel__hd">我的书评</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-    </navigator>
-</view>
-<view class="weui-panel weui-panel_access">
-    <navigator url="/pages/userInfo/about-mini/about-mini">
-        <view class="navigator_content">
-            <view class="weui-panel__hd">关于</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </view>
-    </navigator>
-</view>-->
