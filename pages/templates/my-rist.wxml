@@ -1,0 +1,4 @@
+<!--以借用的图书-->
+<template name="my-rist">
+    <view>借用的图书</view>
+</template>

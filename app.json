@@ -5,14 +5,11 @@
     "pages/index/index",
     "pages/book-list/book-list",
     "pages/book-alive/book-alive",
-
-
     "pages/expressage/expressage",
     "pages/first-btn/first-btn",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book",
     "pages/userInfo/about-mini/about-mini"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,5 +39,6 @@
         "selectedIconPath": "/static/imgs/我的.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

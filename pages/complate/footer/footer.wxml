@@ -1,4 +1,4 @@
 <!--pages/complate/footer/footer.wxml-->
 <view class="weui-footer">
-    <view class="weui-footer__text">Copyright © 2008-2016 baselibrary</view>
+    <view class="weui-footer__text">Copyright © 2019 baselibrary</view>
 </view>

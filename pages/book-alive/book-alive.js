@@ -2,6 +2,7 @@
 const base_sreach = require('../../utils/base_sreach.js')
 const util = require('../../utils/util.js')
 const collection=require('../../utils/collection_books')
+var BASE_SREACH = require('../../utils/base_sreach.js');
 Page({
 
     /**
@@ -17,7 +18,8 @@ Page({
             show: false,
             status: 'loading', // loading, nodata, done
             data: []
-        }
+        },
+        bookImg: BASE_SREACH.URL+"/imgs/timg.jpg"
     },
 
     /**
@@ -101,7 +103,8 @@ Page({
 
                     }
                 })
-            }
+            };
+            console.log(res);
             _this.setData({
                 book: res.data
             })
