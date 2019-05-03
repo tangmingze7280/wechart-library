@@ -9,7 +9,7 @@
             <view class="weui-cells weui-cells_after-title" >
                 <view class="weui-cell">
                     <view class="weui-cell__bd">{{item.bookCode}}</view>
-                    <view class="weui-cell__ft" catchtap="delCollection('{{item.wxCode}}')">取消收藏</view>
+                    <view class="weui-cell__ft" catchtap="delCollection"data-hi="{{item.wxCode}}">取消收藏</view>
                 </view>
             </view>
         </view>

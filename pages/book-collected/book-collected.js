@@ -68,10 +68,23 @@ Page({
 
     },
     /*取消收藏*/
-    delCollection: function (bookId) {
-        console.log(bookId)
-        var userId=wx.getStorageSync('third_Session');
-        console.log(userId);
+    delCollection: function (totol) {
+        var bookCode=totol.target.dataset.hi;
+        var userId=wx.getStorageSync('third_Session')||this.data.wxId;
+        console.log(userId,bookCode);
+        conllections.deleteCollection(userId,bookCode)
+            .then((res)=>{
+                console.log(res);
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000
+                })
+                totol.display=false;
+                this.loadCollectionList();
+            }).catch((e)=>{
+
+        })
 
     },
     /*加载收藏列表*/

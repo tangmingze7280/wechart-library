@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/book-collected/book-collected",
     "pages/getUserInfo/getUserInfo",
+    "pages/book-collected/book-collected",
+
     "pages/userInfo/userInfo",
     "pages/index/index",
     "pages/book-alive/book-alive",

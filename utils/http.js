@@ -60,7 +60,7 @@ function DELETE(url, params='') {
         wx.request({
             url: DEV_URL+url,
             data: params,
-            method: 'PUT',
+            method: 'DELETE',
             success: function (res) {
                 resolve(res);
                 if(res.data.state!=200){
