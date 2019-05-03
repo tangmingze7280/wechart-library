@@ -9,7 +9,7 @@
             <view class="ui-book-card__info-title font-black-34">{{book.title}}</view>
             <view>评分：<span class="color-yellow">{{book.totalScore}} </span>({{book.reviewNum}}条评论)</view>
             <view>作者:
-                <text wx:for='{{book.author}}' wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
+                <text wx:for='{{author}}' wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
             </view>
             <view wx:if="{{book.translator.trim.length}}">译者:
                 <text wx:for="{{book.translator}}" wx:key="*this" class="ui-book-card__info-name">{{item}}</text>

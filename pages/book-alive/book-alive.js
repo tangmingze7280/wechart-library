@@ -19,7 +19,8 @@ Page({
             status: 'loading', // loading, nodata, done
             data: []
         },
-        bookImg: BASE_SREACH.URL+"/imgs/timg.jpg"
+        bookImg: BASE_SREACH.URL+"/imgs/timg.jpg",
+        author:[]
     },
 
     /**
@@ -100,13 +101,29 @@ Page({
                         })
                     },
                     fail: () => {
-
+                        wx.showToast({
+                            title: '该书不存在',
+                            icon: 'none',
+                            duration: 2000
+                        })
                     }
                 })
             };
             console.log(res);
             _this.setData({
                 book: res.data
+            })
+            var amd= res.data;
+           /* var x="[\"马克思\",\"恩格斯\",\"韦建桦\"] "
+            console.log(x);
+            console.log(x.substring(2,x.length-3).split('\",\"'));
+            console.log(amd.author)
+            console.log((amd.author).substr(2,amd.length-2))*/
+           console.log(amd.author);
+            var amdarr=(amd.author).substring(2,amd.author.length-2).split('\",\"');
+            console.log(amdarr);
+            _this.setData({
+                author: amdarr
             })
         }).catch(err => {
             console.log(err)
