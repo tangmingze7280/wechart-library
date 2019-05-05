@@ -98,6 +98,8 @@ Page({
 
     selectBookList: function () {
         var _this = this;
+        console.log("-----------------------");
+        console.log(_this.data.param);
         getBookInfoBySomeOne(_this.data.param).then((res) => {
             console.log(res)
             let b = res.data.data
@@ -114,14 +116,15 @@ Page({
                 return;
             }
             let bookList = _this.data.books
-            bookList.push(...b)
+            bookList.push(...b);
             _this.setData({
                 books: bookList,
             })
-            console.log(_this.data.books)
-            wx.hideLoading()
+            var padait=_this.data.param;
+            padait.pageNum=padait.pageNum+7
+            wx.hideLoading();
             _this.setData({
-                pageNum: _this.data.pageNum + 7,
+                param:padait,
                 loadMoreStatus: "hidding"
             })
         }).catch((err) => {
