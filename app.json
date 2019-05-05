@@ -10,7 +10,8 @@
     "pages/first-btn/first-btn",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book",
-    "pages/userInfo/about-mini/about-mini"
+    "pages/userInfo/about-mini/about-mini",
+    "pages/templates/my-rist/my-rist"
   ],
   "window": {
     "backgroundTextStyle": "light",

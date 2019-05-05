@@ -1,4 +1,4 @@
-<import src="../templates/my-rist.wxml"/>
+<import src="../templates/my-rist/my-rist.wxml"/>
 <view class="page">
     <view class="page__bd">
     

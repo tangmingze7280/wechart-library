@@ -1,4 +1,4 @@
-<!--以借用的图书-->
+<!--已借用的图书-->
 <template name="my-rist">
     <view class="weui-cells__title">带说明的列表项</view>
     <view class="weui-cells weui-cells_after-title">
