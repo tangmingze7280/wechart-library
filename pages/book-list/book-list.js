@@ -1,4 +1,4 @@
-import {getBookInfoBySomeOne} from '../../utils/base_sreach'
+import {getBookInfoBySomeOne,URL} from '../../utils/base_sreach';
 
 Page({
 
@@ -13,7 +13,8 @@ Page({
         isNoData: false, // 是否没有数据
         pageSize: 7,
         pageNum: 0,
-        param: {}
+        param: {},
+        img: URL+"/imgs/book-pic/png"
     },
 
     /**
@@ -21,8 +22,8 @@ Page({
      */
     onLoad: function (options) {
         let _this = this;
-        console.log(options.tabs)
-        console.log(options.collection)
+    /*    console.log(options.tabs)
+        console.log(options.collection)*/
         var param = {classif: '', runking: '', history: '', collection: '', pageNum: 0, pageSize: 7}
         if (options.tabs)
             param.classif = options.tabs

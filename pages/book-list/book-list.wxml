@@ -5,10 +5,10 @@
 </view>
 <!-- 图书列表 -->
 <view wx:if="{{books.length}}" class="weui-cells weui-cells_after-title">
-    <navigator wx:for="{{books}}" wx:key="{{item.id||Math.random()}}" class="weui-cell ui-book-card"
+    <navigator wx:for="{{books}}" wx:key="{{index}}" class="weui-cell ui-book-card"
                hover-class="ui--active" data-index="{{index}}" data-id="{{item.id}}"
                url="/pages/book-alive/book-alive?nextBookName={{item.title}}">
-        <image class="ui-book-card__img" src="{{item.imgs.small}}" mode="widthFix"></image>
+        <image class="ui-book-card__img" src="{{img+1+'.jpg'}}" mode="widthFix"></image>
         <view class="ui-book-card__info font-gray-26">
             <view class="ui-book-card__info-title font-black-34">{{item.title}}</view>
             <view>

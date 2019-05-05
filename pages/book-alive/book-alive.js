@@ -1,8 +1,9 @@
 // pages/book-alive/book-alive.js
 const base_sreach = require('../../utils/base_sreach.js')
 const util = require('../../utils/util.js')
-const collection=require('../../utils/collection_books')
+const collection = require('../../utils/collection_books')
 var BASE_SREACH = require('../../utils/base_sreach.js');
+const borrowed_porduct = require('../../utils/borrowed_porduct.js')
 Page({
 
     /**
@@ -19,8 +20,8 @@ Page({
             status: 'loading', // loading, nodata, done
             data: []
         },
-        bookImg: BASE_SREACH.URL+"/imgs/timg.jpg",
-        author:[]
+        bookImg: BASE_SREACH.URL + "/imgs/timg.jpg",
+        author: []
     },
 
     /**
@@ -108,19 +109,20 @@ Page({
                         })
                     }
                 })
-            };
+            }
+            ;
             console.log(res);
             _this.setData({
                 book: res.data
             })
-            var amd= res.data;
-           /* var x="[\"马克思\",\"恩格斯\",\"韦建桦\"] "
-            console.log(x);
-            console.log(x.substring(2,x.length-3).split('\",\"'));
-            console.log(amd.author)
-            console.log((amd.author).substr(2,amd.length-2))*/
-           console.log(amd.author);
-            var amdarr=(amd.author).substring(2,amd.author.length-2).split('\",\"');
+            var amd = res.data;
+            /* var x="[\"马克思\",\"恩格斯\",\"韦建桦\"] "
+             console.log(x);
+             console.log(x.substring(2,x.length-3).split('\",\"'));
+             console.log(amd.author)
+             console.log((amd.author).substr(2,amd.length-2))*/
+            console.log(amd.author);
+            var amdarr = (amd.author).substring(2, amd.author.length - 2).split('\",\"');
             console.log(amdarr);
             _this.setData({
                 author: amdarr
@@ -130,23 +132,23 @@ Page({
             util.wxalert(err.message)
         })
     },
-    updataCollection:function(){
-        var _this=this
+    updataCollection: function () {
+        var _this = this
         try {
             const value = wx.getStorageSync('third_Session')
             if (value) {
-                collection.updataCollection(value,_this.data.book.isbn).then((res)=>{
+                collection.updataCollection(value, _this.data.book.isbn).then((res) => {
                     console.log(res);
                     wx.showToast({
                         title: res.data.msg,
                         icon: 'success',
                         duration: 2000
                     })
-                }).catch((err)=>{
+                }).catch((err) => {
                     console.log(err)
                 })
 
-            }else{
+            } else {
                 throw new Error("用户未登录");
             }
         } catch (e) {
@@ -155,5 +157,27 @@ Page({
                 url: '/pages/getUserInfo/getUserInfo'
             })
         }
+    },
+    onShowPopup: function () {
+        var bookId = this.data.book;
+        var wxId = wx.getStorageSync('third_Session');
+        var params = {
+            bookId: bookId.isbn,
+            wxId: wxId
+        };
+        borrowed_porduct.addOrderByParams(params)
+            .then((res) => {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000
+                });
+            }).catch((e) => {
+            wx.showToast({
+                title: '服务器异常',
+                icon: 'warning',
+                duration: 2000
+            });
+        })
     }
 })
