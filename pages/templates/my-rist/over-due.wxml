@@ -1,0 +1,12 @@
+<!--逾期的图书-->
+<template name="over-due">
+    <view class="weui-cells__title">逾期</view>
+    <view wx:for="{{overDueList}}" wx:key="{{item.id}}">
+        <view class="weui-cells weui-cells_after-title" >
+            <navigator url="/pages/book-alive/book-alive?nextBookName={{item.bookName}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">{{item.bookName}}</view>
+                <view class="weui-cell__ft">{{item.actualReturnTime}}</view>
+            </navigator>
+        </view>
+    </view>
+</template>

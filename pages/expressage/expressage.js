@@ -1,16 +1,17 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-import {getBorrowListById,getNotList} from '../../utils/borrowed_porduct'
+import {getBorrowListById,giveBack} from '../../utils/borrowed_porduct'
 
 Page({
     data: {
-        tabs: ["待还图书", "借用图书", "超时图书"],// 0  1  2
+        tabs: ["待还图书", "借用图书", "逾期图书"],// 0  1  2
         activeIndex: 1,
         sliderOffset: 0,
         sliderLeft: 0,
         sqlLsit:[],
         ristList: [],
         wxId: 'oR5YB5SwlSZS0m-RqCXFMhkxAVr0',//测试用,
-        notRistList:[]
+        notRistList:[],
+        overDueList:[]
     },
     onLoad: function () {
         var that = this;
@@ -39,7 +40,8 @@ Page({
             console.log('待还');
             this.getListOfRist();
         } else {
-            console.log('我的书评');
+            this.overDue();
+            console.log('逾期');
         }
     },
     getListOfRist: function () {
@@ -59,7 +61,7 @@ Page({
                 if (e.actualReturnTime) {
                     var dayNum= Math.floor((returnDay -today ) / (1000 * 60 * 60 * 24));
                     if(dayNum<0){
-                        e.actualReturnTime='逾期'+Math.abs(dayNum)+'天';
+                        e.actualReturnTime='超时'+Math.abs(dayNum)+'天';
                         e.flag=true;
                     }else{
                         e.actualReturnTime='待还'+dayNum+'天';
@@ -71,6 +73,7 @@ Page({
                 }
                 return e;
             })
+            console.log(resultmap)
             _this.setData({
                 ristList: resultmap
             })
@@ -98,6 +101,41 @@ Page({
         var bookCode = totol.target.dataset.hi;
         var wxId=wx.getStorageSync('third_Session')||this.data.wxId;
         console.log(bookCode,wxId);
+        var param={
+            wxId:wxId,
+            bookCode:bookCode
+        };
+        var notRistList=this.data.notRistList;
+        var aimd=notRistList.filter((e)=>{
+            if(bookCode!=e.isbn)
+                return true;
+        })
+        console.log(aimd);
+        giveBack(param).then((res)=>{
+            console.log(res);
+            wx.showToast({
+                title: res.data.msg,
+                icon: 'success',
+                duration: 2000
+            });
+            this.setData({
+                notRistList:aimd
+            })
+        }).catch((e)=>{
+            console.log(e)
+        })
+    },
+    overDue:function(){
+        var ristList=this.data.ristList;
+        var target= ristList.filter((e)=>{
+            if(e.finePaied==1){
+                return true;
+            }
+        });
+        console.log(target);
+        this.setData({
+            overDueList:target
+        })
 
     }
 });

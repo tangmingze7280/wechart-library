@@ -1,5 +1,6 @@
 <import src="../templates/my-rist/my-rist.wxml"/>
 <import src="../templates/my-rist/no-return-rist.wxml"/>
+<import src="../templates/my-rist/over-due.wxml"/>
 <view class="page">
     <view class="page__bd">
     
@@ -19,7 +20,9 @@
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
                     <template is="my-rist" data="{{ristList}}"/>
                 </view>
-                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                    <template is="over-due" data="{{overDueList}}"/>
+                </view>
             </view>
         </view>
     </view>
