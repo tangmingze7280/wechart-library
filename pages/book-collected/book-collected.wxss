@@ -1,1 +1,4 @@
 /* pages/book-collected/book-collected.wxss */
+.fgreen{
+    color: #32ee2a;
+}

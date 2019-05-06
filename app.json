@@ -1,17 +1,17 @@
 {
   "pages": [
+    "pages/expressage/expressage",
     "pages/getUserInfo/getUserInfo",
     "pages/book-collected/book-collected",
     "pages/userInfo/userInfo",
     "pages/index/index",
     "pages/book-alive/book-alive",
     "pages/book-list/book-list",
-    "pages/expressage/expressage",
+
     "pages/first-btn/first-btn",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book",
-    "pages/userInfo/about-mini/about-mini",
-    "pages/templates/my-rist/my-rist"
+    "pages/userInfo/about-mini/about-mini"
   ],
   "window": {
     "backgroundTextStyle": "light",

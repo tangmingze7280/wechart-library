@@ -1,3 +1,9 @@
 .pa{
   border: 1 rpx solid red
 }
+.fgreen{
+  color: #32ee2a;
+}
+.fred {
+  color: #ee2129;
+}

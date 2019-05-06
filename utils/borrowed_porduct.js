@@ -6,13 +6,10 @@ function getBorrowListById(params){
 function addOrderByParams(params){
     return http.GET("/borrow/badd",params);
 };
-/*function getBorrowListById(){
-    http.GET("/borrow/badd","");
-};
-function getBorrowListById(){
-    http.GET("/borrow/badd","");
-};*/
+/*function getNotList(params){
+    return http.GET("/borrow/getNotList",params);
+}*/
 module.exports={
     getBorrowListById:getBorrowListById,
-    addOrderByParams:addOrderByParams
+    addOrderByParams:addOrderByParams,
 };
