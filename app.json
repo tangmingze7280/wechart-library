@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/expressage/expressage",
     "pages/getUserInfo/getUserInfo",
+    "pages/expressage/expressage",
+
     "pages/book-collected/book-collected",
     "pages/userInfo/userInfo",
     "pages/index/index",

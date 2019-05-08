@@ -73,7 +73,6 @@ Page({
                 }
                 return e;
             })
-            console.log(resultmap)
             _this.setData({
                 ristList: resultmap
             })
@@ -92,15 +91,14 @@ Page({
                return false;
            }
        });
-        console.log(noRistList);
        this.setData({
            notRistList:noRistList
        })
     },
     giveback:function(totol){
+        this.getListOfRist();
         var bookCode = totol.target.dataset.hi;
         var wxId=wx.getStorageSync('third_Session')||this.data.wxId;
-        console.log(bookCode,wxId);
         var param={
             wxId:wxId,
             bookCode:bookCode
@@ -110,9 +108,7 @@ Page({
             if(bookCode!=e.isbn)
                 return true;
         })
-        console.log(aimd);
         giveBack(param).then((res)=>{
-            console.log(res);
             wx.showToast({
                 title: res.data.msg,
                 icon: 'success',
@@ -126,13 +122,13 @@ Page({
         })
     },
     overDue:function(){
+        this.getListOfRist();
         var ristList=this.data.ristList;
         var target= ristList.filter((e)=>{
             if(e.finePaied==1){
                 return true;
             }
         });
-        console.log(target);
         this.setData({
             overDueList:target
         })
