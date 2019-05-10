@@ -4,6 +4,7 @@ const util = require('../../utils/util.js')
 const collection = require('../../utils/collection_books')
 var BASE_SREACH = require('../../utils/base_sreach.js');
 const borrowed_porduct = require('../../utils/borrowed_porduct.js')
+const reviews=require('../../utils/reviews')
 Page({
 
     /**
@@ -21,7 +22,10 @@ Page({
             data: []
         },
         bookImg: BASE_SREACH.URL + "/imgs/timg.jpg",
-        author: []
+        author: [],
+        showModel:true,
+        input:'',
+        cvalue:''
     },
 
     /**
@@ -178,6 +182,63 @@ Page({
                 icon: 'warning',
                 duration: 2000
             });
+        })
+    },
+    showReiviewDialog(){
+        this.setData({
+            showModel:false,
+            input:''
+        })
+    },
+    model2cancel: function () {
+        console.log('取消');
+        this.setData({
+            showModel: true,
+            input: ''
+        })
+    },
+    model2confirm: function () {
+        var bookId = this.data.book;
+        var wxId = wx.getStorageSync('third_Session');
+        var params = {
+            bookId: bookId.isbn,
+            wxId: wxId,
+        };
+        var input= this.data.input;
+        console.log(input);
+        var cvalue= this.data.cvalue;
+        params.content=input;
+        params.score=parseInt(cvalue)
+        console.log(params);
+        reviews.addReview(params).then((res)=>{
+            console.log(res)
+        }).catch((e)=>{
+            console.log(e)
+        });
+        this.setData({
+            showModel: true,
+            input: ''
+        })
+    },
+    input:function (e) {
+        console.log(e.detail.value)
+        this.setData({
+            input:e.detail.value
+        })
+    },
+    valueChange:function (e) {
+        console.log(e.detail.value);
+        this.setData({
+            cvalue:e.detail.value
+        })
+    },
+    onNavigate:function () {
+        var bookCode=this.data.book.isbn
+        console.log(bookCode)
+        var url=`/pages/book-reviews/book-reviews?type=bookreview&bookCode=${bookCode}`
+        wx.navigateTo({
+            url:url,
+
         })
     }
 })

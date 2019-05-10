@@ -2,17 +2,16 @@
   "pages": [
     "pages/getUserInfo/getUserInfo",
     "pages/expressage/expressage",
-
     "pages/book-collected/book-collected",
     "pages/userInfo/userInfo",
     "pages/index/index",
     "pages/book-alive/book-alive",
     "pages/book-list/book-list",
-
     "pages/first-btn/first-btn",
     "pages/book-runking/book-runking",
     "pages/history-book/history-book",
-    "pages/userInfo/about-mini/about-mini"
+    "pages/userInfo/about-mini/about-mini",
+    "pages/book-reviews/book-reviews"
   ],
   "window": {
     "backgroundTextStyle": "light",

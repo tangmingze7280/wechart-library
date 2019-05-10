@@ -57,6 +57,7 @@
         <template is="showcase-booklist" data="{{booklists: book.relevant_booklists}}"></template>
     </view>
     <view wx:else class="font-black-26 ui-card">暂无</view>
+    <view> <button class="weui-btn" type="primary"catchtap="showReiviewDialog">添加评论</button></view>
     <!-- 底部菜单 -->
     <view class="menubar">
         <view class="menubar__icon" data-target="add" catchtap="updataCollection">
@@ -69,4 +70,10 @@
         </view>
         <button class="menubar__btn" type="primary" bindtap="onShowPopup">借阅此书</button>
     </view>
+    <modal hidden="{{showModel}}" title="文本框的modal"value="{{input}}" confirm-text="提交" cancel-text="取消" bindconfirm="model2confirm" bindcancel="model2cancel">
+        <input placeholder='输入评论' bindinput='input'/>
+        <view class="body-view">
+            <slider bindchange="valueChange" min="0" max="10" show-value />
+        </view>
+    </modal>
 </block>
