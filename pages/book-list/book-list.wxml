@@ -12,7 +12,7 @@
         <view class="ui-book-card__info font-gray-26">
             <view class="ui-book-card__info-title font-black-34">{{item.title}}</view>
             <view>作者:
-                <text wx:for="{{item.author}}" wx:key="index" class="ui-book-card__info-name">{{item}}</text>
+                <text  class="ui-book-card__info-name">{{item.author}}</text>
             </view>
             <view>出版社: {{item.publisher}}</view>
             <view>出版日期: {{item.pubdate}}</view>

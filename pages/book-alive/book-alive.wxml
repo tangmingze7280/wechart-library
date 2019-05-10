@@ -7,7 +7,6 @@
     <view class="ui-panel ui-book-card">
         <view class="ui-book-card__info font-gray-26">
             <view class="ui-book-card__info-title font-black-34">{{book.title}}</view>
-            <view>评分：<span class="color-yellow">{{book.totalScore}} </span>({{book.reviewNum}}条评论)</view>
             <view>作者:
                 <text wx:for='{{author}}' wx:key="*this" class="ui-book-card__info-name">{{item}}</text>
             </view>
@@ -22,7 +21,7 @@
             <view>字数: 约{{book.word}}字</view>
             <view>ISBN: {{book.isbn}}</view>
         </view>
-        <image class="ui-book-card__img" src="{{JSON.parse(book.imgs.small)}}" mode="widthFix"
+        <image class="ui-book-card__img" src="{{bookImg}}" mode="widthFix"
                bindtap="onPreview"></image>
     </view>
     <!-- 馆藏信息 -->
@@ -45,16 +44,10 @@
     <view class="ui-card font-black-26 pre-wrap">{{book.catalog || "暂无目录"}}</view>
     <view class="ui-label">试读</view>
     <view class="ui-card font-black-26 pre-wrap">{{book.preview || "暂无试读"}}</view>
-    <!-- 相关图书 -->
+  <!--  &lt;!&ndash; 相关图书 &ndash;&gt;-->
     <view class="ui-label">相关图书</view>
     <view wx:if="{{book.relevant_books && book.relevant_books.length}}" class="ui-panel">
         <template is="showcase-book" data="{{books: book.relevant_books}}"></template>
-    </view>
-    <view wx:else class="font-black-26 ui-card">暂无</view>
-    <!-- 包含这本书的书单 -->
-    <view class="ui-label">包含这本书的书单</view>
-    <view wx:if="{{book.relevantbookImg_booklists && book.relevant_booklists.length}}" class="ui-panel">
-        <template is="showcase-booklist" data="{{booklists: book.relevant_booklists}}"></template>
     </view>
     <view wx:else class="font-black-26 ui-card">暂无</view>
     <view> <button class="weui-btn" type="primary"catchtap="showReiviewDialog">添加评论</button></view>

@@ -116,7 +116,12 @@ Page({
                 return;
             }
             let bookList = _this.data.books
-            bookList.push(...b);
+            let a =b.map((e)=>{
+                var amdarr = (e.author).substring(2, e.author.length - 2).split('\",\"');
+                e.author=amdarr;
+                return e
+            })
+            bookList.push(...a);
             _this.setData({
                 books: bookList,
             })

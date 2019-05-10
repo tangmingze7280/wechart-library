@@ -141,6 +141,11 @@ Page({
             this.setData({
                 reviews:target
             })
+            wx.showToast({
+                title: res.data.msg,
+                icon:'info',
+                duration: 2000
+            });
         }).catch((e) => {
             console.log(e)
         })
