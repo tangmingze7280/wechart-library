@@ -11,11 +11,6 @@
         <image class="ui-book-card__img" src="{{img+1+'.jpg'}}" mode="widthFix"></image>
         <view class="ui-book-card__info font-gray-26">
             <view class="ui-book-card__info-title font-black-34">{{item.title}}</view>
-            <view>
-                评分:{{item.id||Math.random()}}
-                <text class="color-yellow">{{item.totalScore}}</text>
-                （{{item.reviewNum}}条评论）
-            </view>
             <view>作者:
                 <text wx:for="{{item.author}}" wx:key="index" class="ui-book-card__info-name">{{item}}</text>
             </view>

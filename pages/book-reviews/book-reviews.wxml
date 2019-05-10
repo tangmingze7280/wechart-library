@@ -1,0 +1,36 @@
+<view wx:if="{{type == 'usereview' || type == 'bookreview'}}" class="ui-label">
+    <view wx:if="{{type == 'usereview'}}">{{userName}}的评论和评分</view>
+    <view wx:if="{{type == 'bookreview'}}">{{bookName}}的评论和评分</view>
+</view>
+<!-- 评论列表 -->
+<view wx:if="{{reviews.length}}" class="weui-cells weui-cells_after-title">
+    <view wx:for="{{reviews}}" wx:key="{{index}}" class="weui-cell ui-book-card">
+        <image class="ui-book-card__img" src="{{item.userImgurl}}" mode="widthFix" style="border-radius:45px;"></image>
+        <view class="ui-book-card__info font-gray-26">
+            <view class="ui-book-card__info-title font-black-34">书名：{{item.bookName}}</view>
+            <view>
+                评分:
+                <text class="color-yellow">{{item.source}}</text>
+            </view>
+            <view>评论内容:
+                <text  class="ui-book-card__info-name">{{item.content}}</text>
+            </view>
+            <view>评论者:
+                <text  class="ui-book-card__info-name">{{item.userName}}</text>
+            </view>
+        </view>
+        <view class="ui-book-card__delete-btn" wx:if="{{type == 'usereview'}}">
+            <button class="weui-btn mini-btn" type="warn" size="mini" catchtap="delReviews" data-hi="{{item.id}}">删除</button>
+        </view>
+    </view>
+    <view class="weui-loadmore" wx:if="{{loadMoreStatus=='loading'}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{loadMoreStatus=='nodata'}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" wx:if="{{loadMoreStatus=='hidding'}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+</view>

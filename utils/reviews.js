@@ -12,9 +12,14 @@ function getListByBookCode(param){
     let promise=http.GET("/reviews/getListbookId",param)
     return promise;
 }
+function delOne(param){
+    let promise=http.GET("/reviews/del",param)
+    return promise;
+}
 module.exports={
     addReview:addReview,
     getListByUserId:getListByUserId,
     getListByBookCode:getListByBookCode,
+    delOne:delOne,
     URL:http.URL
 }
