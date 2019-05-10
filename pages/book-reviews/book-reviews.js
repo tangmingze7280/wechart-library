@@ -120,15 +120,30 @@ Page({
     },
     delReviews:function (e) {
         var id= parseInt(e.target.dataset.hi);
-        var reviews=this.data.reviews;
-        console.log(id)
+        var revie=this.data.reviews;
+        var target=[]
+        console.log(id);
+        var userId = this.data.wxId;
         var param={
-            id:id
+            id:id,
+            wxId:userId
         }
+        target=revie.filter((e)=>{
+            if(e.id!=id){
+                return true
+            }
+
+        })
+        console.log(target)
+        console.log(param)
         reviews.delOne(param).then((res)=>{
             console.log(res);
+            this.setData({
+                reviews:target
+            })
         }).catch((e) => {
             console.log(e)
         })
+
     }
 })

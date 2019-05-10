@@ -13,7 +13,7 @@ function getListByBookCode(param){
     return promise;
 }
 function delOne(param){
-    let promise=http.GET("/reviews/del",param)
+    let promise=http.GET("/reviews/delListbookId",param)
     return promise;
 }
 module.exports={
