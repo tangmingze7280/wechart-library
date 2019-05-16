@@ -1,4 +1,5 @@
-const DEV_URL = "https://127.0.0.1:433/library";
+const DEV_URL = "https://127.0.0.1:80/library";
+// const DEV_URL = "https://www.gttview.club/library";
 const PROP_URL = ""
 
 function userLogin() {

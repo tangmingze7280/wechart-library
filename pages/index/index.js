@@ -2,13 +2,12 @@ var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 var BASE_SREACH = require('../../utils/base_sreach.js');
 Page({
     data: {
-        tabs: ["选项一", "选项二", "选项三"],
         activeIndex: 1,
         sliderOffset: 0,
         sliderLeft: 0,
         inputShowed: false,
         inputVal: "",
-        selectLimit: ["霍乱时期的爱情", "百年孤独", "小王子", "解忧杂货铺"], //这个是搜索框推荐搜索,
+        selectLimit: ["霍乱时期的爱情", "百年孤独", "小王子"], //这个是搜索框推荐搜索,
         bookRunking: [{
             img: "/static/imgs/icon_add_to_booklist.png",
             bookName: "霍乱时期的爱情",
@@ -32,14 +31,15 @@ Page({
     },
     onLoad: function () {
         var that = this;
-        wx.getSystemInfo({
+        /*wx.getSystemInfo({
             success: function (res) {
+
                 that.setData({
                     sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
                     sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
                 });
             }
-        });
+        });*/
 
     },
     tabClick: function (e) {
