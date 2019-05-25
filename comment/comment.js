@@ -1,4 +1,4 @@
-const DEV_URL = "https://127.0.0.1:80/library";
+const DEV_URL = "https://127.0.0.1:8889/library";
 // const DEV_URL = "https://www.gttview.club/library";
 const PROP_URL = ""
 
@@ -31,10 +31,10 @@ function onLogin(userInfo) {
                     success: function (res) {
                         const self = this
                        // console.log(res.data.data.city)
-                        console.log(res)
+                       //  console.log(res)
                         if (res.data.state && res.data.state==200) {
                             //获取到用户凭证 存儲 3rd_session
-                            console.log(res)
+                            // console.log(res)
                             var json = res.data.data
                              wx.setStorage({
                                  key: "third_Session",
@@ -60,7 +60,7 @@ function onLogin(userInfo) {
                         }
                     },
                     fail: function (res) {
-                        console.log(res, '失败')
+                        // console.log(res, '失败')
                         wx.showModal({
                             content: '授权失败，请重新授权',
                             showCancel: false,

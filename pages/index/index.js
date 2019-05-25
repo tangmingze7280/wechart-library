@@ -19,15 +19,16 @@ Page({
         }],
         sreachOrClassif: true,
         imgUrls: [
-            BASE_SREACH.URL+"/imgs/timg.jpg",
-            BASE_SREACH.URL+"/imgs/timg2.jpg",
-            BASE_SREACH.URL+"/imgs/timg3.jpg"
+            BASE_SREACH.URL + "/imgs/timg.jpg",
+            BASE_SREACH.URL + "/imgs/timg2.jpg",
+            BASE_SREACH.URL + "/imgs/timg3.jpg"
         ],
         indicatorDots: true,
         autoplay: false,
         interval: 5000,
         duration: 1000,
         indicatorColor: "#eee",
+        bookCount:0
     },
     onLoad: function () {
         var that = this;
@@ -40,6 +41,7 @@ Page({
                 });
             }
         });*/
+        this.getBorrowCount()
 
     },
     tabClick: function (e) {
@@ -118,10 +120,25 @@ Page({
             console.log(err)
         })
     },
-    sreachBookList:function(value){
-        let _this=this
+    sreachBookList: function (value) {
+        let _this = this
         wx.navigateTo({
-          url: '/pages/book-alive/book-alive?nextBookName='+_this.data.inputVal
+            url: '/pages/book-alive/book-alive?nextBookName=' + _this.data.inputVal
+        })
+    },
+    getBorrowCount() {
+        var wxId = wx.getStorageSync('third_Session') || 'oR5YB5SwlSZS0m-RqCXFMhkxAVr0';
+        let param = {wxId}
+        console.log(param)
+        let promise = BASE_SREACH.getCountNumBookRead(param);
+        let _this=this
+        promise.then(function(data){
+            console.log(data.data);
+            _this.setData({
+                bookCount:data.data.data
+            })
+        },function(err){
+
         })
     }
 });
