@@ -20,6 +20,7 @@
             <view>页数: {{book.page}}页</view>
             <view>字数: 约{{book.word}}字</view>
             <view>ISBN: {{book.isbn}}</view>
+            <view>库存: <text class="color-green">{{bookSum}} </text>  本</view>
         </view>
         <image class="ui-book-card__img" src="{{bookImg}}" mode="widthFix"
                bindtap="onPreview"></image>
@@ -61,7 +62,7 @@
             <image class="menubar__icon-img" src="/static/imgs/icon_me_fill.png" mode="widthFix"></image>
             <span class="menubar__icon-text">查看书评</span>
         </view>
-        <button class="menubar__btn" type="primary" bindtap="onShowPopup">借阅此书</button>
+        <button class="menubar__btn" type="primary" bindtap="landBook">借阅此书</button>
     </view>
     <modal hidden="{{showModel}}" title="文本框的modal"value="{{input}}" confirm-text="提交" cancel-text="取消" bindconfirm="model2confirm" bindcancel="model2cancel">
         <input placeholder='输入评论' bindinput='input'/>

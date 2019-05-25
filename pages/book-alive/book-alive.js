@@ -25,7 +25,8 @@ Page({
         author: [],
         showModel:true,
         input:'',
-        cvalue:''
+        cvalue:'',
+        bookSum:100
     },
 
     /**
@@ -157,27 +158,48 @@ Page({
             })
         }
     },
-    onShowPopup: function () {
+    landBook: function () {
         var bookId = this.data.book;
         var wxId = wx.getStorageSync('third_Session');
         var params = {
             bookId: bookId.isbn,
             wxId: wxId
         };
-        borrowed_porduct.addOrderByParams(params)
-            .then((res) => {
-                wx.showToast({
-                    title: res.data.msg,
-                    icon: 'success',
-                    duration: 2000
-                });
-            }).catch((e) => {
-            wx.showToast({
-                title: '服务器异常',
-                icon: 'warning',
-                duration: 2000
-            });
-        })
+        var bookSum=this.data.bookSum-1;
+        var _this=this;
+        wx.showModal({
+            title: '确认借书',
+            content: '借书还书期限为13天',
+            confirmText: "借书",
+            cancelText: "取消",
+            success: function (res) {
+                console.log(res);
+                if (res.confirm) {
+                    borrowed_porduct.addOrderByParams(params)
+                        .then((res) => {
+                            wx.showToast({
+                                title: res.data.msg,
+                                icon: 'success',
+                                duration: 2000
+                            });
+                            if(res.data.state==500){
+                                _this.setData({
+                                    bookSum:bookSum
+                                })
+                            }
+                        }).catch((e) => {
+                        wx.showToast({
+                            title: '服务器异常',
+                            icon: 'warning',
+                            duration: 2000
+                        });
+                    })
+                }else{
+                    console.log('用户点击辅助操作')
+                }
+            }
+        });
+
     },
     showReiviewDialog(){
         this.setData({
@@ -186,7 +208,7 @@ Page({
         })
     },
     model2cancel: function () {
-        console.log('取消');
+        // console.log('取消');
         this.setData({
             showModel: true,
             input: ''

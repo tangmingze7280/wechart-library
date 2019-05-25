@@ -18,7 +18,7 @@
             <view>出版日期: {{item.pubdate}}</view>
             <view>ISBN: {{item.isbn}}</view>
             <view>藏书量: {{item.totalNum}}（
-                <text class="color-green">{{item.availableNum||1}}</text>
+                <text class="color-green">{{item.availableNum||100}}</text>
                 本可借）
             </view>
             <view wx:if="{{type == 'recommend'}}" class="ui-book-card__description">{{comments[index]}}</view>
