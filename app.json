@@ -30,7 +30,7 @@
       },
       {
         "pagePath": "pages/expressage/expressage",
-        "text": "订单",
+        "text": "历史",
         "iconPath": "/static/imgs/订单2.png",
         "selectedIconPath": "/static/imgs/订单.png"
       },

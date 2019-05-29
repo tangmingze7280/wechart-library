@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": false,
-		"autoAudits": false,
+		"autoAudits": true,
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",

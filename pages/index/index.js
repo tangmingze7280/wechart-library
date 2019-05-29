@@ -9,11 +9,11 @@ Page({
         inputVal: "",
         selectLimit: ["霍乱时期的爱情", "百年孤独", "小王子"], //这个是搜索框推荐搜索,
         bookRunking: [{
-            img: "/static/imgs/icon_add_to_booklist.png",
+            img: BASE_SREACH.URL+"/imgs/book-pic/png1.jpg",
             bookName: "霍乱时期的爱情",
             introduce: "这是一本不错的书"
         }, {
-            img: "/static/imgs/icon_bell.png",
+            img:  BASE_SREACH.URL+"/imgs/book-pic/png1.jpg",
             bookName: "百年孤独",
             introduce: "这也是一本不错的书"
         }],
